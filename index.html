@@ -1403,34 +1403,36 @@
         <h3>Send Us an Enquiry</h3>
         <p class="form-sub">We typically respond within a few hours during business hours.</p>
 
-        <form action="#" method="post">
+        <form action="https://formspree.io/f/mgorpjqr" method="POST">
+          <input type="hidden" name="_subject" value="New Digi Print enquiry">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
           <div class="form-row">
             <div class="field">
               <label for="fname">First Name</label>
-              <input type="text" id="fname" name="first_name" placeholder="Your first name" required>
+              <input type="text" id="fname" name="first_name" placeholder="Your first name" autocomplete="given-name" required>
             </div>
             <div class="field">
               <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="last_name" placeholder="Your last name" required>
+              <input type="text" id="lname" name="last_name" placeholder="Your last name" autocomplete="family-name" required>
             </div>
           </div>
           <div class="field">
             <label for="company">Business Name</label>
-            <input type="text" id="company" name="company" placeholder="Your business name">
+            <input type="text" id="company" name="company" placeholder="Your business name" autocomplete="organization">
           </div>
           <div class="form-row">
             <div class="field">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="you@yourbusiness.co.uk" required>
+              <input type="email" id="email" name="email" placeholder="you@yourbusiness.co.uk" autocomplete="email" required>
             </div>
             <div class="field">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel">
             </div>
           </div>
           <div class="field">
             <label for="service">What Are You Enquiring About?</label>
-            <select id="service" name="service">
+            <select id="service" name="service" required>
               <option value="" disabled selected>Select a service...</option>
               <option value="shop-signage">Shop Signage</option>
               <option value="window-graphics">Window Graphics</option>
@@ -1447,7 +1449,7 @@
           </div>
           <div class="field">
             <label for="message">Tell Us About Your Project</label>
-            <textarea id="message" name="message" placeholder="Brief overview of what you need, any deadlines, number of locations, or anything else useful to know..."></textarea>
+            <textarea id="message" name="message" placeholder="Brief overview of what you need, any deadlines, number of locations, or anything else useful to know..." required></textarea>
           </div>
           <button type="submit" class="btn btn--primary form-submit">Send Enquiry</button>
         </form>
