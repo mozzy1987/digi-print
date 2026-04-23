@@ -806,6 +806,110 @@
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
      RESPONSIVE
   ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  /* WhatsApp chat widget */
+  .whatsapp-widget {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 120;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .whatsapp-bubble {
+    position: relative;
+    max-width: 260px;
+    padding: 12px 38px 12px 14px;
+    background: var(--white);
+    border: 1px solid rgba(18,21,62,0.08);
+    border-radius: 8px;
+    box-shadow: 0 12px 34px rgba(18,21,62,0.16);
+    color: var(--text);
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.45;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.22s, transform 0.22s;
+  }
+
+  .whatsapp-bubble.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .whatsapp-bubble::after {
+    content: "";
+    position: absolute;
+    right: 24px;
+    bottom: -7px;
+    width: 14px;
+    height: 14px;
+    background: var(--white);
+    border-right: 1px solid rgba(18,21,62,0.08);
+    border-bottom: 1px solid rgba(18,21,62,0.08);
+    transform: rotate(45deg);
+  }
+
+  .whatsapp-bubble-close {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(18,21,62,0.06);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .whatsapp-bubble-close:hover {
+    background: rgba(18,21,62,0.12);
+    color: var(--text);
+  }
+
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 52px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: #25D366;
+    color: var(--white);
+    box-shadow: 0 12px 28px rgba(18,21,62,0.2), 0 4px 14px rgba(37,211,102,0.3);
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.16s, box-shadow 0.16s, transform 0.16s;
+  }
+
+  .whatsapp-button:hover {
+    background: #1ebe5d;
+    color: var(--white);
+    box-shadow: 0 16px 32px rgba(18,21,62,0.24), 0 6px 18px rgba(37,211,102,0.34);
+    transform: translateY(-2px);
+  }
+
+  .whatsapp-button svg {
+    width: 21px;
+    height: 21px;
+    display: block;
+    flex-shrink: 0;
+    fill: currentColor;
+  }
+
+  .whatsapp-button-mobile-text { display: none; }
+
   @media (max-width: 1060px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .service-card--featured { grid-column: span 1; }
@@ -846,6 +950,11 @@
     .enquiry-form { padding: 24px 18px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
     .about-stats { grid-template-columns: 1fr 1fr; }
+    .whatsapp-widget { right: 14px; bottom: 14px; }
+    .whatsapp-bubble { max-width: min(250px, calc(100vw - 28px)); font-size: 0.8rem; }
+    .whatsapp-button { min-height: 48px; padding: 0 15px; font-size: 0.86rem; }
+    .whatsapp-button-text { display: none; }
+    .whatsapp-button-mobile-text { display: inline; }
   }
 
   /* Mobile nav dropdown */
@@ -1542,6 +1651,36 @@
     </div>
   </div>
 </footer>
+
+<div class="whatsapp-widget" aria-label="WhatsApp contact">
+  <div class="whatsapp-bubble" id="whatsapp-bubble">
+    Quick question? Message us on WhatsApp
+    <button class="whatsapp-bubble-close" type="button" aria-label="Dismiss WhatsApp message">&times;</button>
+  </div>
+  <a class="whatsapp-button" href="https://wa.me/447752264677?text=Hi%20Paul%2C%20I%27m%20interested%20in%20a%20quote%20from%20Digi%20Print." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.02 3.2c-7.03 0-12.75 5.62-12.75 12.53 0 2.37.68 4.68 1.96 6.68L3.2 28.8l6.62-1.94a12.96 12.96 0 0 0 6.2 1.57c7.03 0 12.75-5.62 12.75-12.53S23.05 3.2 16.02 3.2Zm0 22.99c-2.04 0-4.02-.58-5.73-1.68l-.41-.26-3.92 1.15 1.2-3.76-.27-.43a10.21 10.21 0 0 1-1.55-5.48c0-5.67 4.79-10.29 10.68-10.29S26.7 10.06 26.7 15.73 21.91 26.19 16.02 26.19Zm5.86-7.7c-.32-.16-1.9-.92-2.2-1.03-.29-.1-.51-.16-.72.16-.21.31-.83 1.03-1.02 1.24-.19.21-.38.23-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.59-1.85-1.78-2.16-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.71-.99-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.21 0-.56.08-.85.39-.29.31-1.12 1.08-1.12 2.63 0 1.55 1.15 3.05 1.31 3.26.16.21 2.27 3.4 5.49 4.77.77.33 1.37.52 1.84.67.77.24 1.47.21 2.03.13.62-.09 1.9-.76 2.17-1.5.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z"/>
+    </svg>
+    <span class="whatsapp-button-text">Chat on WhatsApp</span>
+    <span class="whatsapp-button-mobile-text">WhatsApp</span>
+  </a>
+</div>
+
+<script>
+  (function () {
+    var bubble = document.getElementById('whatsapp-bubble');
+    if (!bubble || sessionStorage.getItem('whatsappBubbleDismissed') === 'true') return;
+
+    window.setTimeout(function () {
+      bubble.classList.add('is-visible');
+    }, 4000);
+
+    bubble.querySelector('.whatsapp-bubble-close').addEventListener('click', function () {
+      bubble.classList.remove('is-visible');
+      sessionStorage.setItem('whatsappBubbleDismissed', 'true');
+    });
+  }());
+</script>
 
 </body>
 </html>
