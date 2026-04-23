@@ -309,18 +309,53 @@
     background: rgba(255,255,255,0.2); flex-shrink: 0;
   }
 
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .hero-actions .btn--primary {
+    padding: 15px 30px;
+    box-shadow: 0 10px 28px rgba(238,54,89,0.28);
+  }
+  .hero-actions .btn--outline {
+    padding: 12px 20px;
+    background: rgba(255,255,255,0.035);
+    border-color: rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.78);
+    font-weight: 650;
+  }
+  .hero-actions .btn--outline:hover {
+    background: rgba(255,255,255,0.075);
+    border-color: rgba(255,255,255,0.42);
+    color: var(--white);
+  }
 
   /* Hero image slot */
   .hero-image-slot { position: relative; z-index: 1; }
+  .hero-image-slot::before {
+    content: '';
+    position: absolute;
+    inset: 18px -10px -14px 24px;
+    border-radius: var(--radius-lg);
+    background: rgba(238,54,89,0.12);
+    filter: blur(22px);
+    opacity: 0.55;
+  }
   .hero-image-placeholder {
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.16);
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.025)),
+      linear-gradient(135deg, rgba(238,54,89,0.1), rgba(242,107,59,0.06) 42%, rgba(18,21,62,0.12));
+    box-shadow: 0 22px 55px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08);
     aspect-ratio: 4 / 3;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     gap: 10px; padding: 32px; position: relative; overflow: hidden;
+  }
+  .hero-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: inherit;
   }
   /* Corner bracket marks in accent colour */
   .hero-image-placeholder::before,
@@ -331,9 +366,15 @@
   }
   .hero-image-placeholder::before { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
   .hero-image-placeholder::after  { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
-  .placeholder-cam   { font-size: 2rem; opacity: 0.3; }
-  .placeholder-label { font-size: 0.83rem; font-weight: 600; color: rgba(255,255,255,0.45); text-align: center; }
-  .placeholder-hint  { font-size: 0.72rem; color: rgba(255,255,255,0.25); text-align: center; line-height: 1.7; font-family: monospace; }
+  .placeholder-cam {
+    width: 58px; height: 58px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.7rem; opacity: 0.82;
+  }
+  .placeholder-label { font-size: 0.92rem; font-weight: 750; color: rgba(255,255,255,0.78); text-align: center; }
+  .placeholder-hint  { font-size: 0.73rem; color: rgba(255,255,255,0.42); text-align: center; line-height: 1.65; font-family: monospace; }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
      TRUST BAR
@@ -546,8 +587,10 @@
 
   .about-visual {
     border-radius: var(--radius-lg);
-    background: linear-gradient(150deg, #12153e 0%, #1a1e52 70%, rgba(238,54,89,0.15) 100%);
-    border: 1px solid rgba(238,54,89,0.12);
+    background:
+      linear-gradient(150deg, #12153e 0%, #171b4b 62%, rgba(238,54,89,0.16) 100%);
+    border: 1px solid rgba(238,54,89,0.14);
+    box-shadow: 0 18px 42px rgba(18,21,62,0.14);
     position: relative; overflow: hidden;
     padding: 0;
   }
@@ -563,26 +606,42 @@
     content: '';
     position: absolute; bottom: -40px; right: -40px;
     width: 180px; height: 180px;
-    background: rgba(229,11,122,0.08); border-radius: 50%;
+    background: rgba(229,11,122,0.07); border-radius: 50%;
   }
   .about-stats {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 0; padding-top: 4px; /* gap for the stripe */
   }
   .stat-block {
-    padding: 32px 28px;
-    border-right: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 34px 28px 30px;
+    border-right: 1px solid rgba(255,255,255,0.075);
+    border-bottom: 1px solid rgba(255,255,255,0.075);
     position: relative; z-index: 1;
+    min-height: 145px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
+  .stat-block::before {
+    content: '';
+    position: absolute;
+    top: 22px; left: 28px;
+    width: 22px; height: 3px;
+    border-radius: 2px;
+    background: rgba(238,54,89,0.8);
+  }
+  .stat-block:nth-child(2)::before { background: rgba(229,11,122,0.75); }
+  .stat-block:nth-child(3)::before { background: rgba(242,107,59,0.8); }
+  .stat-block:nth-child(4)::before { background: rgba(242,233,78,0.8); }
   .stat-block:nth-child(2) { border-right: none; }
   .stat-block:nth-child(3) { border-bottom: none; }
   .stat-block:nth-child(4) { border-right: none; border-bottom: none; }
   .stat-number {
-    font-size: 2.4rem; font-weight: 800;
-    color: var(--white); line-height: 1; display: block; margin-bottom: 4px;
+    font-size: 2.15rem; font-weight: 800;
+    color: var(--white); line-height: 0.95; display: block; margin-bottom: 8px;
+    letter-spacing: -0.01em;
   }
-  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); font-weight: 500; line-height: 1.4; }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.62); font-weight: 600; line-height: 1.45; }
 
   .about-text h2 { margin-bottom: 16px; }
   .about-text > p { margin-bottom: 14px; }
@@ -719,6 +778,19 @@
     font-size: 0.95rem; flex-shrink: 0; transition: background 0.15s;
   }
   .contact-link:hover .contact-link-icon { background: rgba(238,54,89,0.25); }
+  .contact-link--whatsapp .contact-link-icon {
+    background: rgba(37,211,102,0.12);
+    border-color: rgba(37,211,102,0.28);
+    color: #25D366;
+  }
+  .contact-link--whatsapp:hover { color: #7bf0a8; }
+  .contact-link--whatsapp:hover .contact-link-icon { background: rgba(37,211,102,0.2); }
+  .contact-link-icon svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: currentColor;
+  }
 
   .service-area-tag {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
@@ -809,27 +881,27 @@
   /* WhatsApp chat widget */
   .whatsapp-widget {
     position: fixed;
-    right: 22px;
-    bottom: 22px;
+    right: 24px;
+    bottom: 24px;
     z-index: 120;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 10px;
+    gap: 12px;
   }
 
   .whatsapp-bubble {
     position: relative;
-    max-width: 260px;
-    padding: 12px 38px 12px 14px;
+    max-width: 278px;
+    padding: 14px 42px 14px 16px;
     background: var(--white);
-    border: 1px solid rgba(18,21,62,0.08);
+    border: 1px solid rgba(18,21,62,0.1);
     border-radius: 8px;
-    box-shadow: 0 12px 34px rgba(18,21,62,0.16);
+    box-shadow: 0 18px 42px rgba(18,21,62,0.18);
     color: var(--text);
-    font-size: 0.84rem;
-    font-weight: 600;
-    line-height: 1.45;
+    font-size: 0.83rem;
+    font-weight: 650;
+    line-height: 1.5;
     opacity: 0;
     transform: translateY(8px);
     pointer-events: none;
@@ -840,6 +912,18 @@
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+  .whatsapp-bubble strong {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--primary);
+    font-size: 0.88rem;
+  }
+  .whatsapp-bubble span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 500;
   }
 
   .whatsapp-bubble::after {
@@ -857,10 +941,10 @@
 
   .whatsapp-bubble-close {
     position: absolute;
-    top: 7px;
-    right: 8px;
-    width: 22px;
-    height: 22px;
+    top: 9px;
+    right: 9px;
+    width: 24px;
+    height: 24px;
     border: 0;
     border-radius: 50%;
     background: rgba(18,21,62,0.06);
@@ -880,13 +964,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    min-height: 52px;
-    padding: 0 18px;
+    gap: 10px;
+    min-height: 54px;
+    padding: 0 20px 0 18px;
     border-radius: 999px;
     background: #25D366;
     color: var(--white);
-    box-shadow: 0 12px 28px rgba(18,21,62,0.2), 0 4px 14px rgba(37,211,102,0.3);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 16px 34px rgba(18,21,62,0.24), 0 5px 16px rgba(37,211,102,0.3);
     font-size: 0.92rem;
     font-weight: 800;
     text-decoration: none;
@@ -896,7 +981,7 @@
   .whatsapp-button:hover {
     background: #1ebe5d;
     color: var(--white);
-    box-shadow: 0 16px 32px rgba(18,21,62,0.24), 0 6px 18px rgba(37,211,102,0.34);
+    box-shadow: 0 20px 38px rgba(18,21,62,0.28), 0 7px 20px rgba(37,211,102,0.34);
     transform: translateY(-2px);
   }
 
@@ -946,12 +1031,15 @@
     .trust-item + .trust-item::before { display: none; }
     .trust-items { flex-direction: column; align-items: flex-start; padding: 0 8px; }
     .hero-actions { flex-direction: column; }
-    .hero-actions .btn { text-align: center; }
+    .hero-actions .btn { width: 100%; text-align: center; }
     .enquiry-form { padding: 24px 18px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
     .about-stats { grid-template-columns: 1fr 1fr; }
+    .stat-block { min-height: 126px; padding: 30px 20px 24px; }
+    .stat-block::before { top: 18px; left: 20px; }
+    .stat-number { font-size: 1.75rem; }
     .whatsapp-widget { right: 14px; bottom: 14px; }
-    .whatsapp-bubble { max-width: min(250px, calc(100vw - 28px)); font-size: 0.8rem; }
+    .whatsapp-bubble { max-width: min(258px, calc(100vw - 28px)); font-size: 0.8rem; }
     .whatsapp-button { min-height: 48px; padding: 0 15px; font-size: 0.86rem; }
     .whatsapp-button-text { display: none; }
     .whatsapp-button-mobile-text { display: inline; }
@@ -1497,6 +1585,14 @@
             <div class="contact-link-icon">✉️</div>
             [INSERT EMAIL]
           </a>
+          <a href="https://wa.me/447752264677?text=Hi%20Paul%2C%20I%27m%20interested%20in%20a%20quote%20for%20Digi%20Print." class="contact-link contact-link--whatsapp" target="_blank" rel="noopener" aria-label="Message Paul on WhatsApp">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <path d="M16.02 3.2c-7.03 0-12.75 5.62-12.75 12.53 0 2.37.68 4.68 1.96 6.68L3.2 28.8l6.62-1.94a12.96 12.96 0 0 0 6.2 1.57c7.03 0 12.75-5.62 12.75-12.53S23.05 3.2 16.02 3.2Zm0 22.99c-2.04 0-4.02-.58-5.73-1.68l-.41-.26-3.92 1.15 1.2-3.76-.27-.43a10.21 10.21 0 0 1-1.55-5.48c0-5.67 4.79-10.29 10.68-10.29S26.7 10.06 26.7 15.73 21.91 26.19 16.02 26.19Zm5.86-7.7c-.32-.16-1.9-.92-2.2-1.03-.29-.1-.51-.16-.72.16-.21.31-.83 1.03-1.02 1.24-.19.21-.38.23-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.59-1.85-1.78-2.16-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.71-.99-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.21 0-.56.08-.85.39-.29.31-1.12 1.08-1.12 2.63 0 1.55 1.15 3.05 1.31 3.26.16.21 2.27 3.4 5.49 4.77.77.33 1.37.52 1.84.67.77.24 1.47.21 2.03.13.62-.09 1.9-.76 2.17-1.5.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z"/>
+              </svg>
+            </div>
+            WhatsApp Paul
+          </a>
         </div>
 
         <div class="service-area-tag">
@@ -1645,7 +1741,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2025 Digi Print. Manchester-based signage, graphics &amp; print. All rights reserved.</p>
+        <p>&copy; 2026 Digi Print. Manchester-based signage, graphics &amp; print. All rights reserved.</p>
         <p>Signage Manchester &bull; Vehicle Graphics Manchester &bull; Window Graphics Manchester &bull; Large Format Print Manchester</p>
       </div>
     </div>
@@ -1654,10 +1750,11 @@
 
 <div class="whatsapp-widget" aria-label="WhatsApp contact">
   <div class="whatsapp-bubble" id="whatsapp-bubble">
-    Quick question? Message us on WhatsApp
+    <strong>Quick question?</strong>
+    <span>Message Paul on WhatsApp for a fast quote.</span>
     <button class="whatsapp-bubble-close" type="button" aria-label="Dismiss WhatsApp message">&times;</button>
   </div>
-  <a class="whatsapp-button" href="https://wa.me/447752264677?text=Hi%20Paul%2C%20I%27m%20interested%20in%20a%20quote%20from%20Digi%20Print." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <a class="whatsapp-button" href="https://wa.me/447752264677?text=Hi%20Paul%2C%20I%27m%20interested%20in%20a%20quote%20for%20Digi%20Print." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
       <path d="M16.02 3.2c-7.03 0-12.75 5.62-12.75 12.53 0 2.37.68 4.68 1.96 6.68L3.2 28.8l6.62-1.94a12.96 12.96 0 0 0 6.2 1.57c7.03 0 12.75-5.62 12.75-12.53S23.05 3.2 16.02 3.2Zm0 22.99c-2.04 0-4.02-.58-5.73-1.68l-.41-.26-3.92 1.15 1.2-3.76-.27-.43a10.21 10.21 0 0 1-1.55-5.48c0-5.67 4.79-10.29 10.68-10.29S26.7 10.06 26.7 15.73 21.91 26.19 16.02 26.19Zm5.86-7.7c-.32-.16-1.9-.92-2.2-1.03-.29-.1-.51-.16-.72.16-.21.31-.83 1.03-1.02 1.24-.19.21-.38.23-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.59-1.85-1.78-2.16-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.71-.99-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.21 0-.56.08-.85.39-.29.31-1.12 1.08-1.12 2.63 0 1.55 1.15 3.05 1.31 3.26.16.21 2.27 3.4 5.49 4.77.77.33 1.37.52 1.84.67.77.24 1.47.21 2.03.13.62-.09 1.9-.76 2.17-1.5.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z"/>
     </svg>
@@ -1669,7 +1766,17 @@
 <script>
   (function () {
     var bubble = document.getElementById('whatsapp-bubble');
-    if (!bubble || sessionStorage.getItem('whatsappBubbleDismissed') === 'true') return;
+    var storageKey = 'whatsappBubbleDismissedUntil';
+    var now = Date.now();
+    var dismissedUntil = 0;
+
+    try {
+      dismissedUntil = parseInt(localStorage.getItem(storageKey) || '0', 10);
+    } catch (error) {
+      dismissedUntil = 0;
+    }
+
+    if (!bubble || dismissedUntil > now) return;
 
     window.setTimeout(function () {
       bubble.classList.add('is-visible');
@@ -1677,7 +1784,9 @@
 
     bubble.querySelector('.whatsapp-bubble-close').addEventListener('click', function () {
       bubble.classList.remove('is-visible');
-      sessionStorage.setItem('whatsappBubbleDismissed', 'true');
+      try {
+        localStorage.setItem(storageKey, String(Date.now() + 7 * 24 * 60 * 60 * 1000));
+      } catch (error) {}
     });
   }());
 </script>
