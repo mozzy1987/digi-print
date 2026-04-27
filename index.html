@@ -84,7 +84,7 @@
     --card-shadow:      0 1px 12px rgba(18,21,62,0.07);
     --card-shadow-hover: 0 6px 28px rgba(18,21,62,0.13);
     --radius:    6px;
-    --radius-lg: 14px;
+    --radius-lg: 20px;
     --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
     --max: 1180px;
     --header-h: 68px;
@@ -113,10 +113,10 @@
   :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
   /* ── TYPOGRAPHY ── */
-  h1, h2, h3, h4 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
-  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
-  h2 { font-size: clamp(1.55rem, 3vw, 2.3rem); }
-  h3 { font-size: 1.05rem; letter-spacing: -0.01em; }
+  h1, h2, h3, h4 { line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.6rem, 5.5vw, 4.2rem); letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.7rem, 3.2vw, 2.6rem); }
+  h3 { font-size: 1.07rem; letter-spacing: -0.01em; }
   p  { font-size: 0.97rem; color: var(--muted); line-height: 1.7; }
   a  { color: inherit; text-decoration: none; }
 
@@ -131,8 +131,8 @@
 
   /* ── LAYOUT ── */
   .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-  .section          { padding: 96px 0; }
-  .section--sm      { padding: 64px 0; }
+  .section          { padding: 120px 0; }
+  .section--sm      { padding: 80px 0; }
   .section--dark    { background: var(--primary); color: var(--white); }
   .section--dark p  { color: rgba(255,255,255,0.65); }
   .section--dark h2 { color: var(--white); }
@@ -148,8 +148,8 @@
 
   /* ── BUTTONS ── */
   .btn {
-    display: inline-block; padding: 13px 26px;
-    border-radius: var(--radius); font-size: 0.93rem;
+    display: inline-block; padding: 13px 28px;
+    border-radius: 999px; font-size: 0.93rem;
     font-weight: 700; letter-spacing: 0.01em;
     transition: background 0.18s, color 0.18s, transform 0.15s, box-shadow 0.18s;
     cursor: pointer; border: 2px solid transparent; line-height: 1.2;
@@ -157,20 +157,20 @@
   .btn--primary { background: var(--accent); color: var(--white); }
   .btn--primary:hover {
     background: var(--accent-dark); transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(238,54,89,0.38);
+    box-shadow: 0 6px 22px rgba(238,54,89,0.38);
   }
   .btn--outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
   .btn--outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.8); transform: translateY(-1px); }
   .btn--ghost  { background: transparent; color: var(--text); border-color: var(--border); }
   .btn--ghost:hover { border-color: var(--text); transform: translateY(-1px); }
-  .btn--sm { padding: 9px 18px; font-size: 0.85rem; }
+  .btn--sm { padding: 9px 20px; font-size: 0.85rem; }
 
   /* ── SECTION HEADINGS ── */
-  .section-head { margin-bottom: 56px; }
+  .section-head { margin-bottom: 68px; }
   .section-head--center { text-align: center; }
   .section-head--center p { margin: 0 auto; }
-  .section-head h2 { margin-bottom: 10px; }
-  .section-head p { max-width: 520px; }
+  .section-head h2 { margin-bottom: 12px; }
+  .section-head p { max-width: 560px; }
 
   .accent-line {
     width: 40px; height: 3px;
@@ -256,16 +256,7 @@
     padding-bottom: 110px;
     position: relative; overflow: hidden;
   }
-  /* Subtle diagonal white cut at bottom */
-  #hero::after {
-    content: '';
-    position: absolute; bottom: -2px; left: 0; right: 0;
-    height: 72px;
-    background: linear-gradient(to top right, var(--white) 49%, transparent 50%);
-    pointer-events: none;
-  }
 
-  /* Two-column hero layout — 55/45 */
   .hero-layout {
     display: grid;
     grid-template-columns: 55fr 45fr;
@@ -295,7 +286,6 @@
     max-width: 480px; margin-bottom: 20px; line-height: 1.7;
   }
 
-  /* Mini meta strip between sub-text and CTAs */
   .hero-metas {
     display: flex; align-items: center; gap: 8px;
     margin-bottom: 36px; flex-wrap: wrap;
@@ -327,7 +317,6 @@
     color: var(--white);
   }
 
-  /* Hero image slot */
   .hero-image-slot { position: relative; z-index: 1; }
   .hero-image-slot::before {
     content: '';
@@ -345,19 +334,15 @@
       linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.025)),
       linear-gradient(135deg, rgba(238,54,89,0.1), rgba(242,107,59,0.06) 42%, rgba(18,21,62,0.12));
     box-shadow: 0 22px 55px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08);
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     gap: 10px; padding: 32px; position: relative; overflow: hidden;
   }
   .hero-image-placeholder img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    border-radius: inherit;
+    width: 100%; height: 100%;
+    display: block; object-fit: cover; border-radius: inherit;
   }
-  /* Corner bracket marks in accent colour */
   .hero-image-placeholder::before,
   .hero-image-placeholder::after {
     content: ''; position: absolute;
@@ -369,12 +354,39 @@
   .placeholder-cam {
     width: 58px; height: 58px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
     font-size: 1.7rem; opacity: 0.82;
   }
   .placeholder-label { font-size: 0.92rem; font-weight: 750; color: rgba(255,255,255,0.78); text-align: center; }
   .placeholder-hint  { font-size: 0.73rem; color: rgba(255,255,255,0.42); text-align: center; line-height: 1.65; font-family: monospace; }
+
+  /* Animated arrow CTA — Atura-style */
+  .btn-arrow {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 1rem; font-weight: 700; color: var(--text);
+    text-decoration: none; letter-spacing: -0.01em;
+    transition: gap 0.22s ease;
+  }
+  .btn-arrow:hover { gap: 20px; }
+  .btn-arrow-circle {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--accent); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1.1rem; line-height: 1;
+    transition: background 0.2s, transform 0.22s;
+  }
+  .btn-arrow:hover .btn-arrow-circle { background: var(--accent-dark); transform: rotate(-45deg); }
+  .btn-arrow--outline .btn-arrow-circle {
+    background: transparent;
+    border: 2px solid var(--text); color: var(--text);
+  }
+  .btn-arrow--outline:hover .btn-arrow-circle {
+    background: var(--text); color: var(--white); transform: rotate(-45deg);
+  }
+  /* Dark-background arrow variant */
+  .btn-arrow--light { color: var(--white); }
+  .btn-arrow--light .btn-arrow-circle { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); }
+  .btn-arrow--light:hover .btn-arrow-circle { background: var(--accent); border-color: var(--accent); }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
      TRUST BAR
@@ -434,19 +446,27 @@
     grid-column: span 2;
     background: var(--primary);
     border: 1px solid rgba(255,255,255,0.07);
-    padding: 36px 32px;
+    padding: 46px 42px;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card--featured::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -18px; right: 28px;
+    font-size: 9rem; font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1; letter-spacing: -0.04em;
+    pointer-events: none; user-select: none;
   }
   .service-card--featured:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(18,21,62,0.35);
-  }
-  .service-card--featured .service-icon {
-    width: 52px; height: 52px; margin-bottom: 8px;
+    box-shadow: 0 10px 38px rgba(18,21,62,0.4);
   }
   .service-card--featured h3 {
-    color: var(--white); font-size: 1.2rem; margin-bottom: 4px;
+    color: var(--white); font-size: 1.3rem; margin-bottom: 6px;
   }
-  .service-card--featured p { color: rgba(255,255,255,0.62); font-size: 0.93rem; }
+  .service-card--featured p { color: rgba(255,255,255,0.62); font-size: 0.95rem; }
   .service-card--featured .service-tag {
     color: var(--accent-light); background: rgba(242,107,59,0.12);
     border: 1px solid rgba(242,107,59,0.2);
@@ -466,19 +486,7 @@
   .service-card--standard h3 { color: var(--text); }
   .service-card--standard p  { font-size: 0.88rem; }
 
-  .service-icon {
-    width: 44px; height: 44px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; color: var(--white); flex-shrink: 0;
-  }
-  /* Featured icon gradients */
-  .service-card--featured:nth-child(1) .service-icon { background: linear-gradient(135deg, #ee3659, #c4233f); }
-  .service-card--featured:nth-child(2) .service-icon { background: linear-gradient(135deg, #e50b7a, #f26b3b); }
-  /* Standard icon gradients */
-  .service-card--standard:nth-child(3) .service-icon { background: linear-gradient(135deg, #f26b3b, #d44d1a); }
-  .service-card--standard:nth-child(4) .service-icon { background: linear-gradient(135deg, #ee3659, #e50b7a); }
-  .service-card--standard:nth-child(5) .service-icon { background: linear-gradient(135deg, #e50b7a, #f26b3b); }
-  .service-card--standard:nth-child(6) .service-icon { background: linear-gradient(135deg, #f26b3b, #ee3659); }
+  /* Service icons removed — cards use clean numbered treatment instead */
 
   .service-tag {
     display: inline-block; font-size: 0.68rem; font-weight: 700;
@@ -489,39 +497,79 @@
   }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
-     WHY DIGI PRINT
-     2-col grid, left-border accent, tighter numbers
+     WHY DIGI PRINT — marquee + right panel
   ━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  .why-grid {
+  #why { background: var(--surface); }
+  .why-layout {
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  /* Marquee container */
+  .why-marquee-outer {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: rgba(255,255,255,0.06); /* thin divider lines */
-    border-radius: var(--radius-lg);
-    overflow: hidden;
+    gap: 14px;
   }
-  .why-item {
-    background: var(--primary);
-    padding: 36px 32px;
-    display: flex; flex-direction: column; gap: 8px;
-    border-left: 3px solid transparent;
-    transition: background 0.2s;
+  .why-marquee-outer::before,
+  .why-marquee-outer::after {
+    content: ''; position: absolute;
+    left: 0; right: 0; z-index: 2;
+    height: 90px; pointer-events: none;
   }
-  .why-item:hover { background: #151840; }
-  .why-item:nth-child(1) { border-left-color: #ee3659; }
-  .why-item:nth-child(2) { border-left-color: #e50b7a; }
-  .why-item:nth-child(3) { border-left-color: #f26b3b; }
-  .why-item:nth-child(4) { border-left-color: #f2e94e; }
-  .why-item:nth-child(5) { border-left-color: #ee3659; }
-  .why-item:nth-child(6) { border-left-color: #e50b7a; }
+  .why-marquee-outer::before { top: 0; background: linear-gradient(to bottom, var(--surface), transparent); }
+  .why-marquee-outer::after  { bottom: 0; background: linear-gradient(to top, var(--surface), transparent); }
 
-  .why-num {
-    font-size: 0.68rem; font-weight: 800;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.28); margin-bottom: 2px;
+  .why-col { display: flex; flex-direction: column; gap: 14px; }
+  .why-col--up   { animation: whyScrollUp 24s linear infinite; }
+  .why-col--down { animation: whyScrollDown 24s linear infinite; }
+
+  @keyframes whyScrollUp {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
   }
-  .why-item h3 { color: var(--white); font-size: 1rem; }
-  .why-item p  { font-size: 0.89rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+  @keyframes whyScrollDown {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+
+  .why-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 22px 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    flex-shrink: 0;
+  }
+  .why-card-num {
+    font-size: 0.62rem; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px; display: block;
+  }
+  .why-card h3 { font-size: 0.93rem; color: var(--text); margin-bottom: 6px; }
+  .why-card p  { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+  /* Right panel */
+  .why-right .label { display: block; margin-bottom: 0.6rem; }
+  .why-right h2 { margin-bottom: 14px; }
+  .why-right > p { margin-bottom: 22px; }
+  .why-tick-list {
+    list-style: none; display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 36px;
+  }
+  .why-tick-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.91rem; color: var(--muted);
+  }
+  .why-tick-list li::before {
+    content: '✓'; color: var(--accent); font-weight: 800;
+    flex-shrink: 0; margin-top: 1px; font-size: 0.85rem;
+  }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
      OUTCOMES
@@ -559,45 +607,93 @@
      SECONDARY SERVICES
      Clearly lighter visual weight
   ━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  /* WORK / PROJECTS */
-  #work { background: var(--white); }
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━
+     WORK / PROJECTS — Atura-style portrait tiles
+  ━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  #work { background: var(--surface); }
   .work-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
+  /* Portrait tile — full-bleed image, text at bottom */
   .work-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px 26px;
-    box-shadow: var(--card-shadow);
+    position: relative;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    min-height: 320px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    transition: transform 0.22s ease;
   }
-  .work-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
-    border-color: rgba(238,54,89,0.22);
+  .work-card:nth-child(1) { background: linear-gradient(155deg, #1e1228 0%, var(--primary) 100%); }
+  .work-card:nth-child(2) { background: linear-gradient(155deg, #0e1a24 0%, var(--primary) 100%); }
+  .work-card:nth-child(3) { background: linear-gradient(155deg, #1a160e 0%, var(--primary) 100%); }
+  .work-card:hover { transform: translateY(-5px); }
+
+  /* Full-bleed image fills the tile */
+  .work-card-img {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
   }
-  .work-card-tag {
-    color: var(--accent);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .work-card-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.38s ease;
   }
-  .work-card h3 { font-size: 1.05rem; color: var(--text); }
-  .work-card p { font-size: 0.88rem; }
+  .work-card:hover .work-card-img img { transform: scale(1.04); }
+
+  /* Dark gradient overlay — heavier at bottom (Atura pattern) */
+  .work-card-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.88) 0%,
+      rgba(18,21,62,0.58) 30%,
+      rgba(18,21,62,0.12) 62%,
+      rgba(18,21,62,0) 82%
+    );
+    pointer-events: none;
+  }
+
+  /* Text body — pinned to bottom of tile */
+  .work-card-body {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px 22px 26px;
+    z-index: 2;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  /* Category tag */
+  .work-card-img-tag {
+    font-size: 0.6rem; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+    display: block;
+  }
+  .work-card-tag { display: none; }
+  .work-card h3 {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--white);
+    line-height: 1.12;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .work-card p { display: none; } /* portrait tiles — title only */
   .work-card-link {
-    margin-top: auto;
-    color: var(--primary);
-    font-size: 0.86rem;
-    font-weight: 800;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.78rem; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
   }
-  .work-card-link:hover { color: var(--accent); }
+  .work-card-link::after { content: '→'; }
 
   #secondary { background: var(--surface); }
   #secondary .section-head h2 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); color: var(--muted); }
@@ -755,23 +851,49 @@
   .stars { color: #F5A623; font-size: 0.88rem; letter-spacing: 2px; }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
-     FAQ
+     FAQ — split layout
   ━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  .faq-list { max-width: 760px; margin: 0 auto; }
-  .faq-item { border-bottom: 1px solid var(--border); padding: 28px 0; }
-  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-split {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .faq-intro h2 { margin-bottom: 14px; }
+  .faq-intro > p { color: var(--muted); font-size: 0.97rem; line-height: 1.7; margin-bottom: 28px; }
+  .faq-phone-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.9rem; font-weight: 700; color: var(--white);
+    background: var(--accent); padding: 13px 22px;
+    border-radius: 999px; text-decoration: none;
+    transition: background 0.18s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .faq-phone-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-  .faq-q {
+  /* Accordion */
+  .faq-accordion details { border-bottom: 1px solid var(--border); }
+  .faq-accordion details:first-of-type { border-top: 1px solid var(--border); }
+  .faq-accordion summary {
     font-size: 1rem; font-weight: 700; color: var(--text);
-    margin-bottom: 12px; padding-left: 20px; position: relative;
+    padding: 20px 36px 20px 0;
+    cursor: pointer; list-style: none; position: relative;
+    transition: color 0.15s;
   }
-  .faq-q::before {
-    content: '';
-    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent);
+  .faq-accordion summary::-webkit-details-marker { display: none; }
+  .faq-accordion summary::after {
+    content: '+';
+    position: absolute; right: 0; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem; font-weight: 300; color: var(--accent);
+    line-height: 1; transition: transform 0.2s;
   }
-  .faq-a { font-size: 0.92rem; color: var(--muted); line-height: 1.75; padding-left: 20px; }
+  .faq-accordion details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-accordion details[open] summary { color: var(--accent); }
+  .faq-accordion .faq-body {
+    font-size: 0.92rem; color: var(--muted);
+    line-height: 1.75; padding-bottom: 20px;
+  }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━
      CONTACT
@@ -839,12 +961,13 @@
   }
   .service-area-tag strong { color: rgba(255,255,255,0.85); }
 
-  .map-placeholder {
-    background: rgba(255,255,255,0.03); border-radius: var(--radius);
-    height: 140px; display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(255,255,255,0.07); margin-top: 20px;
+  .service-area-towns {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    margin-top: 16px;
+    font-size: 0.8rem; color: rgba(255,255,255,0.45); font-weight: 600;
   }
-  .map-placeholder span { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
+  .service-area-towns span:first-child { color: var(--accent); }
+  .service-area-towns span:not(:first-child):nth-child(even) { color: rgba(255,255,255,0.2); }
 
   /* FORM */
   .enquiry-form { background: var(--white); border-radius: var(--radius-lg); padding: 36px 32px; }
@@ -1039,26 +1162,26 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .service-card--featured { grid-column: span 1; }
     .secondary-grid { grid-template-columns: repeat(2, 1fr); }
-    .work-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: repeat(3, 1fr); }
     .footer-inner { grid-template-columns: 1fr 1fr; }
-    .why-grid { grid-template-columns: 1fr 1fr; }
+    .why-layout { grid-template-columns: 1fr; gap: 48px; }
+    .why-marquee-outer { height: 360px; }
+    .faq-split { grid-template-columns: 1fr; gap: 48px; }
   }
 
   @media (max-width: 860px) {
-    .hero-layout { grid-template-columns: 1fr; }
-    .hero-image-slot { display: none; }
     .about-inner { grid-template-columns: 1fr; gap: 36px; }
     .contact-grid { grid-template-columns: 1fr; gap: 36px; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .testimonials-pair { grid-template-columns: 1fr; }
     .testimonial-card--hero { flex-direction: column; gap: 20px; padding: 32px; }
     .testimonial-card--hero .quote-mark { font-size: 3.5rem; }
-    .section { padding: 72px 0; }
+    .section { padding: 80px 0; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
     nav { display: none; }
     .nav-hamburger { display: flex; }
     .header-phone .phone-label { display: none; }
     .header-socials { display: none; }
-    .contact-grid { grid-template-columns: 1fr; }
     .contact-trust { flex-wrap: wrap; gap: 4px; }
   }
 
@@ -1066,13 +1189,13 @@
     .services-grid { grid-template-columns: 1fr; }
     .service-card--featured { grid-column: span 1; }
     .secondary-grid { grid-template-columns: 1fr 1fr; }
-    .why-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card { aspect-ratio: 4/3; min-height: 260px; }
     .footer-inner { grid-template-columns: 1fr; gap: 24px; }
     .form-row { grid-template-columns: 1fr; }
     .trust-item + .trust-item::before { display: none; }
     .trust-items { flex-direction: column; align-items: flex-start; padding: 0 8px; }
-    .hero-actions { flex-direction: column; }
-    .hero-actions .btn { width: 100%; text-align: center; }
+    .hero-actions { flex-direction: column; align-items: center; }
     .enquiry-form { padding: 24px 18px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
     .about-stats { grid-template-columns: 1fr 1fr; }
@@ -1084,6 +1207,9 @@
     .whatsapp-button { min-height: 48px; padding: 0 15px; font-size: 0.86rem; }
     .whatsapp-button-text { display: none; }
     .whatsapp-button-mobile-text { display: inline; }
+    .why-marquee-outer { grid-template-columns: 1fr; height: 280px; }
+    .why-col--down { display: none; }
+    .faq-split { gap: 36px; }
   }
 
   /* Mobile nav dropdown */
@@ -1150,10 +1276,10 @@
 
       <div class="header-cta">
         <div class="header-socials">
-          <a href="https://www.instagram.com/[INSERT HANDLE]" class="social-icon" aria-label="Digi Print on Instagram" target="_blank" rel="noopener">
+          <a href="https://www.instagram.com/digiprintmcr" class="social-icon" aria-label="Digi Print on Instagram" target="_blank" rel="noopener">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="https://www.facebook.com/[INSERT HANDLE]" class="social-icon" aria-label="Digi Print on Facebook" target="_blank" rel="noopener">
+          <a href="https://www.facebook.com/digiprintmcr" class="social-icon" aria-label="Digi Print on Facebook" target="_blank" rel="noopener">
             <svg width="16" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
         </div>
@@ -1248,43 +1374,37 @@
     </div>
     <div class="services-grid">
 
-      <div class="service-card service-card--featured" id="shop-signage">
-        <div class="service-icon">🏪</div>
+      <div class="service-card service-card--featured" id="shop-signage" data-num="01">
         <h3>Shop Signage</h3>
         <p>Fascia signs, built-up lettering, illuminated signage, office signs, unit signage, and exterior branding. From independent retailers to offices, business parks, and commercial premises — if it goes on the front of a building, we handle it.</p>
         <span class="service-tag">Shop Signage Manchester</span>
       </div>
 
-      <div class="service-card service-card--featured" id="vehicle-graphics">
-        <div class="service-icon">🚐</div>
+      <div class="service-card service-card--featured" id="vehicle-graphics" data-num="02">
         <h3>Vehicle Graphics &amp; Livery</h3>
         <p>Full vehicle wraps, partial graphics, fleet livery, and cut vinyl lettering. We work with sole traders running one van and service companies running dozens — same quality, right finish, every time.</p>
         <span class="service-tag">Vehicle Livery Manchester</span>
       </div>
 
       <div class="service-card service-card--standard">
-        <div class="service-icon">🪟</div>
         <h3>Window Graphics</h3>
         <p>Frosted vinyl, privacy bands, cut lettering, full-colour window prints, and glazed graphics. Applied cleanly, finished properly, and designed to work for offices, receptions, commercial units, and customer-facing spaces.</p>
         <span class="service-tag">Window Graphics Manchester</span>
       </div>
 
       <div class="service-card service-card--standard">
-        <div class="service-icon">🗺️</div>
         <h3>Large Format Print</h3>
         <p>Exhibition graphics, banners, POS displays, hoardings, site boards, and oversized prints at any scale. Produced sharp, delivered fast, and specified properly for retail, leisure, commercial, and industrial environments.</p>
         <span class="service-tag">Large Format Manchester</span>
       </div>
 
       <div class="service-card service-card--standard" id="signage-installation">
-        <div class="service-icon">🔧</div>
         <h3>Signage Installation</h3>
         <p>Supply-and-install as standard. Our install teams work on shopfronts, offices, commercial units, leisure venues, and coordinated multi-site rollouts — one job, one team, nothing left for you to chase.</p>
         <span class="service-tag">Managed Install Service</span>
       </div>
 
       <div class="service-card service-card--standard">
-        <div class="service-icon">🖼️</div>
         <h3>Wall Graphics, Interior Branding &amp; Architectural Film</h3>
         <p>Wall graphics, branded surfaces, and architectural film for offices, receptions, hospitality interiors, feature walls, counters, doors, and lift areas. Ideal when the inside of the space needs to look as considered as the outside.</p>
         <span class="service-tag">Interior Branding &amp; Architectural Film</span>
@@ -1296,50 +1416,53 @@
 
 
 <!-- ═══════════════════════ WHY DIGI PRINT ═══════════════════════ -->
-<section id="why" class="section section--dark">
+<section id="why" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="label label--light">Why Work With Us</span>
-      <div class="accent-line"></div>
-      <h2>A Signage Partner That Actually Delivers</h2>
-      <p>We're not a print portal or a catalogue service. We're a small, commercially focused team with real production capability and install teams you can actually rely on.</p>
-    </div>
-    <div class="why-grid">
+    <div class="why-layout">
 
-      <div class="why-item">
-        <div class="why-num">01</div>
-        <h3>Fast &amp; Flexible</h3>
-        <p>Deadlines don't move — and neither do we. We work at the pace your business needs, whether that's a same-week turnaround or a carefully phased rollout.</p>
+      <!-- LEFT: scrolling marquee (hidden from assistive tech — content in right panel) -->
+      <div class="why-marquee-outer" aria-hidden="true">
+
+        <!-- Column 1 — scrolls up; duplicated for seamless loop -->
+        <div class="why-col why-col--up">
+          <div class="why-card"><span class="why-card-num">01</span><h3>Fast &amp; Flexible</h3><p>Deadlines don't move — and neither do we. We work at the pace your business needs, whether that's a same-week turnaround or a carefully phased rollout.</p></div>
+          <div class="why-card"><span class="why-card-num">03</span><h3>Wide Production Network</h3><p>We work with specialist suppliers across signage, print, fabrication, glazing, architectural film, and install — joined-up jobs without added complexity.</p></div>
+          <div class="why-card"><span class="why-card-num">05</span><h3>Install Capability Included</h3><p>We manage the full process — production, delivery, and professional installation. One job, one relationship, no coordination headaches on your side.</p></div>
+          <div class="why-card"><span class="why-card-num">01</span><h3>Fast &amp; Flexible</h3><p>Deadlines don't move — and neither do we. We work at the pace your business needs, whether that's a same-week turnaround or a carefully phased rollout.</p></div>
+          <div class="why-card"><span class="why-card-num">03</span><h3>Wide Production Network</h3><p>We work with specialist suppliers across signage, print, fabrication, glazing, architectural film, and install — joined-up jobs without added complexity.</p></div>
+          <div class="why-card"><span class="why-card-num">05</span><h3>Install Capability Included</h3><p>We manage the full process — production, delivery, and professional installation. One job, one relationship, no coordination headaches on your side.</p></div>
+        </div>
+
+        <!-- Column 2 — scrolls down; duplicated for seamless loop -->
+        <div class="why-col why-col--down">
+          <div class="why-card"><span class="why-card-num">02</span><h3>One Point of Contact</h3><p>You deal with one person throughout. They know your job, your brand, and what's been agreed — from the first enquiry through to the install being signed off.</p></div>
+          <div class="why-card"><span class="why-card-num">04</span><h3>One-Offs to Multi-Site Rollouts</h3><p>Whether it's a single unit sign or a rollout across 20 locations, we have the processes and supplier relationships to deliver consistently at scale.</p></div>
+          <div class="why-card"><span class="why-card-num">06</span><h3>Commercially Minded Approach</h3><p>We care about the result, not the invoice value. If there's a better way to approach something, we'll say so upfront rather than just taking the order.</p></div>
+          <div class="why-card"><span class="why-card-num">02</span><h3>One Point of Contact</h3><p>You deal with one person throughout. They know your job, your brand, and what's been agreed — from the first enquiry through to the install being signed off.</p></div>
+          <div class="why-card"><span class="why-card-num">04</span><h3>One-Offs to Multi-Site Rollouts</h3><p>Whether it's a single unit sign or a rollout across 20 locations, we have the processes and supplier relationships to deliver consistently at scale.</p></div>
+          <div class="why-card"><span class="why-card-num">06</span><h3>Commercially Minded Approach</h3><p>We care about the result, not the invoice value. If there's a better way to approach something, we'll say so upfront rather than just taking the order.</p></div>
+        </div>
+
       </div>
 
-      <div class="why-item">
-        <div class="why-num">02</div>
-        <h3>One Point of Contact</h3>
-        <p>You deal with one person throughout. They know your job, your brand, and what's been agreed — from the first enquiry through to the install being signed off.</p>
-      </div>
-
-      <div class="why-item">
-        <div class="why-num">03</div>
-        <h3>Wide Production Network</h3>
-        <p>We work with specialist suppliers across signage, print, fabrication, glazing, architectural film, and install. That means we can take on joined-up jobs without adding complexity for you.</p>
-      </div>
-
-      <div class="why-item">
-        <div class="why-num">04</div>
-        <h3>One-Offs to Multi-Site Rollouts</h3>
-        <p>Whether it's a single unit sign, a branded office refresh, or a rollout across 20 locations, we have the processes and supplier relationships to deliver consistently at scale.</p>
-      </div>
-
-      <div class="why-item">
-        <div class="why-num">05</div>
-        <h3>Install Capability Included</h3>
-        <p>We manage the full process — production, delivery, and professional installation. One job, one relationship, no coordination headaches on your side.</p>
-      </div>
-
-      <div class="why-item">
-        <div class="why-num">06</div>
-        <h3>Commercially Minded Approach</h3>
-        <p>We care about the result, not the invoice value. If there's a better way to approach something — whether that's materials, timing, or spec — we'll say so upfront rather than just taking the order.</p>
+      <!-- RIGHT: content panel -->
+      <div class="why-right">
+        <span class="label">Why Work With Us</span>
+        <div class="accent-line"></div>
+        <h2>A Signage Partner That Actually Delivers</h2>
+        <p>We're not a print portal or a catalogue service. We're a small, commercially focused team with real production capability and install teams you can actually rely on.</p>
+        <ul class="why-tick-list">
+          <li>Fast turnarounds — same-week or carefully phased rollouts</li>
+          <li>One contact from first enquiry to signed-off install</li>
+          <li>Specialist supplier network across all trades</li>
+          <li>One-off jobs and multi-site rollouts handled equally well</li>
+          <li>Full install capability included as standard</li>
+          <li>Straight-talking, commercially focused advice</li>
+        </ul>
+        <a href="#contact" class="btn-arrow">
+          Get a Quote
+          <span class="btn-arrow-circle" aria-hidden="true">→</span>
+        </a>
       </div>
 
     </div>
@@ -1423,22 +1546,46 @@
     </div>
     <div class="work-grid">
       <a class="work-card" href="shop-signage-lymm-fish-bar.html">
-        <span class="work-card-tag">Shop Signage</span>
-        <h3>Lymm Fish Bar</h3>
-        <p>Exterior fascia signage and shopfront branding for a busy local food business in Lymm.</p>
-        <span class="work-card-link">View Project</span>
+        <div class="work-card-img">
+          <!--
+            PROJECT PHOTO — replace this comment with:
+            <img src="lymm-fish-bar.jpg" alt="Lymm Fish Bar shopfront fascia signage">
+            Recommended: 600 × 800px (portrait)
+          -->
+        </div>
+        <div class="work-card-body">
+          <span class="work-card-img-tag">Shop Signage</span>
+          <h3>Lymm Fish Bar</h3>
+          <span class="work-card-link">View Project</span>
+        </div>
       </a>
       <a class="work-card" href="signage-installation-flixton-cricket-club.html">
-        <span class="work-card-tag">Outdoor Signage</span>
-        <h3>Flixton Cricket Club</h3>
-        <p>Storage shed signage, refreshed banners, and sponsor signage fitted around the club ground.</p>
-        <span class="work-card-link">View Project</span>
+        <div class="work-card-img">
+          <!--
+            PROJECT PHOTO — replace this comment with:
+            <img src="flixton-cricket-club.jpg" alt="Flixton Cricket Club outdoor signage installation">
+            Recommended: 600 × 800px (portrait)
+          -->
+        </div>
+        <div class="work-card-body">
+          <span class="work-card-img-tag">Outdoor Signage</span>
+          <h3>Flixton Cricket Club</h3>
+          <span class="work-card-link">View Project</span>
+        </div>
       </a>
       <a class="work-card" href="draincare-fleet-livery.html">
-        <span class="work-card-tag">Fleet Livery</span>
-        <h3>Draincare</h3>
-        <p>Vehicle graphics and fleet branding for a service business operating in and around Urmston.</p>
-        <span class="work-card-link">View Project</span>
+        <div class="work-card-img">
+          <!--
+            PROJECT PHOTO — replace this comment with:
+            <img src="draincare-fleet.jpg" alt="Draincare branded fleet van livery">
+            Recommended: 600 × 800px (portrait)
+          -->
+        </div>
+        <div class="work-card-body">
+          <span class="work-card-img-tag">Fleet Livery</span>
+          <h3>Draincare</h3>
+          <span class="work-card-link">View Project</span>
+        </div>
       </a>
     </div>
   </div>
@@ -1457,25 +1604,21 @@
     <div class="secondary-grid">
 
       <div class="secondary-card">
-        <div class="secondary-icon">🖨️</div>
         <h3>General Print</h3>
         <p>Business stationery, leaflets, brochures, flyers, folders, and everything in between. Clean, quality print when you need it — without the back and forth.</p>
       </div>
 
       <div class="secondary-card">
-        <div class="secondary-icon">🎁</div>
         <h3>Promotional Merchandise</h3>
         <p>Branded pens, bags, clothing, mugs, and more. We source and supply promotional items for trade shows, staff use, and campaign giveaways — one order, one contact, delivered to you.</p>
       </div>
 
       <div class="secondary-card">
-        <div class="secondary-icon">📋</div>
         <h3>Print Management</h3>
         <p>Regularly buying print from multiple suppliers? We can consolidate it — handling purchasing, proofing, and delivery so your team isn't chasing three different contacts for one job.</p>
       </div>
 
       <div class="secondary-card">
-        <div class="secondary-icon">🎨</div>
         <h3>Creative &amp; Digital Support</h3>
         <p>Don't have print-ready artwork? We can work from a logo and a brief, adapt existing files, or make sure what you've got is correctly spec'd before it goes to production.</p>
       </div>
@@ -1517,7 +1660,7 @@
         <h2>A Manchester Signage and Graphics Partner for Commercial Spaces</h2>
         <p>Digi Print is a Manchester-based signage, graphics, and print business. We keep the process straightforward — one contact, clear communication, and jobs that get done without you having to chase.</p>
         <p>We specialise in signage, graphics, and install-led work across shopfronts, office signage, commercial units, vehicle livery, window graphics, wall graphics, branded interiors, and architectural film. We also support clients with general print, merchandise, and print management where needed.</p>
-        <p>We work with offices, retailers, hospitality operators, trade businesses, leisure venues, service companies, clubs, and commercial clients across Manchester, Greater Manchester, and the wider North West.</p>
+        <p>We work with offices, retailers, hospitality operators, trade businesses, leisure venues, service companies, clubs, and commercial clients across Manchester, Salford, Trafford, Stockport, Bolton, Wigan, and the wider North West.</p>
         <ul class="about-list">
           <li>Manchester-based, North West and UK-wide capability</li>
           <li>Experienced in one-off jobs, site refreshes, and multi-site rollouts</li>
@@ -1548,10 +1691,14 @@
         <span class="quote-mark" aria-hidden="true">"</span>
         <div class="testimonial-body">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-quote">We needed shop signage for a new location opening and were working to a tight deadline. Digi Print turned it around faster than anyone else we'd approached — and the finished result looked fantastic. Professional from start to finish, and they handled the installation too. We'll be using them for all future sites.</p>
+          <p class="testimonial-quote">Digi Print are absolutely brilliant.
+
+I have crazy ideas and call them to explain and they delivers, Nothing is to much, easy communication and great prices. Highly recommend.
+
+Thanks for everything 💛.</p>
           <div class="testimonial-author">
-            <span class="author-name">Sarah M.</span>
-            <span class="author-role">Operations Manager, Retail Group — Manchester</span>
+            <span class="author-name">Kirsty.</span>
+            <span class="author-role">Owner - Locate Estate Agent — Manchester</span>
           </div>
         </div>
       </div>
@@ -1560,10 +1707,10 @@
       <div class="testimonials-pair">
         <div class="testimonial-card testimonial-card--standard">
           <div class="stars">★★★★★</div>
-          <p class="testimonial-quote">"We had three vans that needed full livery applying as part of a rebrand. The quality of the vehicle wraps was excellent, the turnaround was quick, and the whole process was easy to manage. One point of contact throughout — no chasing, no confusion. Exactly what you want when you're trying to coordinate a rebrand alongside everything else."</p>
+          <p class="testimonial-quote">"Used Paul to print some labels. Its a design we've kept for some time. Pauls attention to detail was brilliant and he found a placement error which he showed to us and it made it look so much better. Delivered fast and at a very good price. Thanks Paul."</p>
           <div class="testimonial-author">
-            <span class="author-name">James R.</span>
-            <span class="author-role">Director, Commercial Services Company — Greater Manchester</span>
+            <span class="author-name">Andrew.</span>
+            <span class="author-role">Development Manager - Ainsworth Surgical Supplies — Greater Manchester</span>
           </div>
         </div>
 
@@ -1585,42 +1732,50 @@
 <!-- ═══════════════════════ FAQ ═══════════════════════ -->
 <section id="faq" class="section section--surface">
   <div class="container">
-    <div class="section-head section-head--center">
-      <span class="label">Common Questions</span>
-      <div class="accent-line" style="margin: 0 auto 20px;"></div>
-      <h2>Frequently Asked Questions</h2>
-      <p>Practical answers to the questions we get asked most often.</p>
-    </div>
-    <div class="faq-list">
+    <div class="faq-split">
 
-      <div class="faq-item">
-        <div class="faq-q">What areas do you cover?</div>
-        <div class="faq-a">We're based in Manchester and primarily serve Greater Manchester and the wider North West. We can also support projects across the UK — particularly for clients requiring multi-site rollouts or national coverage. Just get in touch and we'll confirm what we can do for your location.</div>
+      <!-- Left: intro + phone CTA -->
+      <div class="faq-intro">
+        <span class="label">Common Questions</span>
+        <div class="accent-line"></div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Practical answers to the questions we get asked most often. Can't see what you need? Just give us a call.</p>
+        <a href="tel:[INSERT PHONE]" class="faq-phone-btn">📞 Call Us Now</a>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q">Do you work on office signage and commercial premises?</div>
-        <div class="faq-a">Yes. We work on office signs, reception graphics, commercial unit signage, glazing graphics, industrial premises branding, and general external signage for business premises. It's not just shopfronts and vans.</div>
-      </div>
+      <!-- Right: accordion -->
+      <div class="faq-accordion">
 
-      <div class="faq-item">
-        <div class="faq-q">Can you brand commercial units and business park premises?</div>
-        <div class="faq-a">Absolutely. We regularly support clients with signage and graphics for units, offices, workshops, leisure venues, and shared commercial sites — including entrance signs, glazing, fascia panels, internal branding, and coordinated multi-site work.</div>
-      </div>
+        <details>
+          <summary>What areas do you cover?</summary>
+          <p class="faq-body">We're based in Manchester and primarily serve Greater Manchester and the wider North West. We can also support projects across the UK — particularly for clients requiring multi-site rollouts or national coverage. Just get in touch and we'll confirm what we can do for your location.</p>
+        </details>
 
-      <div class="faq-item">
-        <div class="faq-q">Do you offer architectural vinyl or architectural film?</div>
-        <div class="faq-a">Yes. We supply and install architectural film for commercial interiors where surfaces need upgrading without full replacement. That includes reception areas, counters, doors, lift areas, feature walls, and other branded interior surfaces where the finish needs to look premium and durable.</div>
-      </div>
+        <details>
+          <summary>Do you work on office signage and commercial premises?</summary>
+          <p class="faq-body">Yes. We work on office signs, reception graphics, commercial unit signage, glazing graphics, industrial premises branding, and general external signage for business premises. It's not just shopfronts and vans.</p>
+        </details>
 
-      <div class="faq-item">
-        <div class="faq-q">Can you help with interior branding and wall graphics?</div>
-        <div class="faq-a">Yes. We produce and install wall graphics, glazed graphics, branded surfaces, privacy films, and interior branding for offices, hospitality venues, customer areas, and other commercial interiors.</div>
-      </div>
+        <details>
+          <summary>Can you brand commercial units and business park premises?</summary>
+          <p class="faq-body">Absolutely. We regularly support clients with signage and graphics for units, offices, workshops, leisure venues, and shared commercial sites — including entrance signs, glazing, fascia panels, internal branding, and coordinated multi-site work.</p>
+        </details>
 
-      <div class="faq-item">
-        <div class="faq-q">How quickly can you turn things around?</div>
-        <div class="faq-a">It depends on the job. Vehicle livery and standard print can often move quickly. Fabricated signage, architectural film, and larger install work can take longer depending on spec and site requirements. Tell us your deadline upfront and we'll give you a straight answer.</div>
+        <details>
+          <summary>Do you offer architectural vinyl or architectural film?</summary>
+          <p class="faq-body">Yes. We supply and install architectural film for commercial interiors where surfaces need upgrading without full replacement. That includes reception areas, counters, doors, lift areas, feature walls, and other branded interior surfaces where the finish needs to look premium and durable.</p>
+        </details>
+
+        <details>
+          <summary>Can you help with interior branding and wall graphics?</summary>
+          <p class="faq-body">Yes. We produce and install wall graphics, glazed graphics, branded surfaces, privacy films, and interior branding for offices, hospitality venues, customer areas, and other commercial interiors.</p>
+        </details>
+
+        <details>
+          <summary>How quickly can you turn things around?</summary>
+          <p class="faq-body">It depends on the job. Vehicle livery and standard print can often move quickly. Fabricated signage, architectural film, and larger install work can take longer depending on spec and site requirements. Tell us your deadline upfront and we'll give you a straight answer.</p>
+        </details>
+
       </div>
 
     </div>
@@ -1671,11 +1826,19 @@
         </div>
 
         <div class="service-area-tag">
-          <strong>Service Area:</strong> Manchester, Greater Manchester, and across the North West. Single-site jobs, business park units, branded interiors, and multi-site rollout support all available — just ask.
+          <strong>Based in Manchester.</strong> We cover Greater Manchester and the wider North West — including Salford, Trafford, Stockport, Bolton, Wigan, Bury, Oldham, Rochdale, and beyond. Multi-site and UK-wide rollouts also available.
         </div>
 
-        <div class="map-placeholder">
-          <span>📍 Manchester, Greater Manchester</span>
+        <div class="service-area-towns">
+          <span>📍</span>
+          <span>Manchester</span><span>·</span>
+          <span>Salford</span><span>·</span>
+          <span>Trafford</span><span>·</span>
+          <span>Stockport</span><span>·</span>
+          <span>Bolton</span><span>·</span>
+          <span>Wigan</span><span>·</span>
+          <span>Bury</span><span>·</span>
+          <span>Oldham</span>
         </div>
       </div>
 
@@ -1773,12 +1936,13 @@
               </g>
             </svg>
           </a>
-          <p>Manchester-based commercial signage, graphics, branded interiors, architectural film, and install specialists. Shopfronts, offices, commercial units, vehicle fleets, and branded environments across Greater Manchester and the North West.</p>
+          <p>Manchester-based commercial signage, graphics, branded interiors, architectural film, and install specialists. Serving shopfronts, offices, commercial units, and vehicle fleets across Salford, Trafford, Stockport, Bolton, Wigan, and the wider North West.</p>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.28);margin-top:10px;">📍 Based in Manchester &mdash; serving Greater Manchester &amp; the North West</p>
           <div class="footer-socials">
-            <a href="https://www.instagram.com/[INSERT HANDLE]" class="footer-social" aria-label="Digi Print on Instagram" target="_blank" rel="noopener">
+            <a href="https://www.instagram.com/digiprintmcr" class="footer-social" aria-label="Digi Print on Instagram" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="https://www.facebook.com/[INSERT HANDLE]" class="footer-social" aria-label="Digi Print on Facebook" target="_blank" rel="noopener">
+            <a href="https://www.facebook.com/digiprintmcr" class="footer-social" aria-label="Digi Print on Facebook" target="_blank" rel="noopener">
               <svg width="15" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
           </div>
