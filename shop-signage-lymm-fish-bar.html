@@ -155,7 +155,7 @@
   .faq-a { font-size: 0.9rem; color: var(--muted); line-height: 1.7; padding-left: 16px; }
 
   /* More projects */
-  .more-projects { margin-bottom: 34px; }
+  .more-projects { margin-top: 56px; margin-bottom: 34px; }
   .more-projects > h2 { font-size: 1.15rem; margin-bottom: 14px; }
   .projects-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .project-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: border-color 0.15s; }
@@ -194,6 +194,12 @@
     .cta { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
     .cta-actions, .cta-actions .btn { width: 100%; }
     .projects-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    h1 { overflow-wrap: break-word; hyphens: auto; }
+    .nav-links { display: none; }
+    .hero { padding: 44px 0 44px; }
+    .container { padding: 0 18px; }
   }
 </style>
 </head>

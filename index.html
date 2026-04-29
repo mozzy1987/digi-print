@@ -611,28 +611,70 @@
      WORK / PROJECTS — Atura-style portrait tiles
   ━━━━━━━━━━━━━━━━━━━━━━━━━ */
   #work { background: var(--surface); }
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+
+  /* ── Horizontal marquee carousel ── */
+  .work-marquee {
+    position: relative;
+    overflow: hidden;
+    /* bleed to screen edge so fade covers container padding */
+    margin: 0 -28px;
+    padding: 8px 0 16px;
   }
+  /* Gradient fade on left and right */
+  .work-marquee::before,
+  .work-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; z-index: 2;
+    width: 120px;
+    pointer-events: none;
+  }
+  .work-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, var(--surface) 30%, transparent);
+  }
+  .work-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, var(--surface) 30%, transparent);
+  }
+  .work-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    padding: 0 28px; /* restore container left edge */
+    animation: workScrollLeft 30s linear infinite;
+  }
+  /* Pause on hover so cards are easily clicked */
+  .work-marquee:hover .work-track,
+  .work-track:focus-within {
+    animation-play-state: paused;
+  }
+  @keyframes workScrollLeft {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
   /* Portrait tile — full-bleed image, text at bottom */
   .work-card {
     position: relative;
     display: flex;
     border-radius: var(--radius-lg);
     overflow: hidden;
+    width: 300px;
     aspect-ratio: 3/4;
-    min-height: 320px;
+    flex-shrink: 0;
     background: var(--primary);
     color: var(--white);
     text-decoration: none;
-    transition: transform 0.22s ease;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
   }
-  .work-card:nth-child(1) { background: linear-gradient(155deg, #1e1228 0%, var(--primary) 100%); }
-  .work-card:nth-child(2) { background: linear-gradient(155deg, #0e1a24 0%, var(--primary) 100%); }
-  .work-card:nth-child(3) { background: linear-gradient(155deg, #1a160e 0%, var(--primary) 100%); }
-  .work-card:hover { transform: translateY(-5px); }
+  .work-card:nth-child(3n+1) { background: linear-gradient(155deg, #1e1228 0%, var(--primary) 100%); }
+  .work-card:nth-child(3n+2) { background: linear-gradient(155deg, #0e1a24 0%, var(--primary) 100%); }
+  .work-card:nth-child(3n+3) { background: linear-gradient(155deg, #1a160e 0%, var(--primary) 100%); }
+  .work-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(18,21,62,0.22);
+  }
 
   /* Full-bleed image fills the tile */
   .work-card-img {
@@ -1162,11 +1204,12 @@
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .service-card--featured { grid-column: span 1; }
     .secondary-grid { grid-template-columns: repeat(2, 1fr); }
-    .work-grid { grid-template-columns: repeat(3, 1fr); }
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .why-layout { grid-template-columns: 1fr; gap: 48px; }
     .why-marquee-outer { height: 360px; }
     .faq-split { grid-template-columns: 1fr; gap: 48px; }
+    /* Carousel: narrow cards slightly on tablets */
+    .work-card { width: 260px; }
   }
 
   @media (max-width: 860px) {
@@ -1177,7 +1220,6 @@
     .testimonial-card--hero { flex-direction: column; gap: 20px; padding: 32px; }
     .testimonial-card--hero .quote-mark { font-size: 3.5rem; }
     .section { padding: 80px 0; }
-    .work-grid { grid-template-columns: repeat(2, 1fr); }
     nav { display: none; }
     .nav-hamburger { display: flex; }
     .header-phone .phone-label { display: none; }
@@ -1196,8 +1238,6 @@
     .services-grid { grid-template-columns: 1fr; }
     .service-card--featured { grid-column: span 1; }
     .secondary-grid { grid-template-columns: 1fr 1fr; }
-    .work-grid { grid-template-columns: 1fr; }
-    .work-card { aspect-ratio: 4/3; min-height: 260px; }
     .footer-inner { grid-template-columns: 1fr; gap: 24px; }
     .form-row { grid-template-columns: 1fr; }
     .trust-item + .trust-item::before { display: none; }
@@ -1212,6 +1252,26 @@
     .stat-number { font-size: 1.75rem; }
     .whatsapp-widget { right: 14px; bottom: 14px; }
     .whatsapp-bubble { max-width: min(258px, calc(100vw - 28px)); font-size: 0.8rem; }
+    /* Carousel on mobile: disable animation, use native scroll-snap instead */
+    .work-marquee {
+      overflow-x: scroll;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 12px;
+      /* hide scrollbar visually but keep functional */
+      scrollbar-width: none;
+    }
+    .work-marquee::-webkit-scrollbar { display: none; }
+    .work-marquee::before, .work-marquee::after { display: none; }
+    .work-track {
+      animation: none !important;
+      transform: none !important;
+      padding: 0 20px;
+    }
+    /* Only show first 3 real cards on mobile; duplicate cards hidden */
+    .work-card { width: 240px; scroll-snap-align: start; }
+    .work-card[aria-hidden="true"] { display: none; }
     .whatsapp-button { min-height: 48px; padding: 0 15px; font-size: 0.86rem; }
     .whatsapp-button-text { display: none; }
     .whatsapp-button-mobile-text { display: inline; }
@@ -1224,7 +1284,7 @@
       padding-bottom: 52px;
     }
     .hero-badge { display: none; }
-    #hero h1 { font-size: 2.1rem; }
+    #hero h1 { font-size: 2.1rem; overflow-wrap: break-word; hyphens: auto; }
     .hero-sub { font-size: 0.97rem; }
     .hero-metas { gap: 6px; margin-bottom: 28px; }
   }
@@ -1618,49 +1678,88 @@
       <h2>Recent Signage, Graphics &amp; Install Projects</h2>
       <p>A few examples of practical, commercially focused work delivered for local businesses, commercial venues, clubs, and service fleets.</p>
     </div>
-    <div class="work-grid">
-      <a class="work-card" href="shop-signage-lymm-fish-bar.html">
-        <div class="work-card-img">
-          <!--
-            PROJECT PHOTO — replace this comment with:
-            <img src="lymm-fish-bar.jpg" alt="Lymm Fish Bar shopfront fascia signage">
-            Recommended: 600 × 800px (portrait)
-          -->
-        </div>
-        <div class="work-card-body">
-          <span class="work-card-img-tag">Shop Signage</span>
-          <h3>Lymm Fish Bar</h3>
-          <span class="work-card-link">View Project</span>
-        </div>
-      </a>
-      <a class="work-card" href="signage-installation-flixton-cricket-club.html">
-        <div class="work-card-img">
-          <!--
-            PROJECT PHOTO — replace this comment with:
-            <img src="flixton-cricket-club.jpg" alt="Flixton Cricket Club outdoor signage installation">
-            Recommended: 600 × 800px (portrait)
-          -->
-        </div>
-        <div class="work-card-body">
-          <span class="work-card-img-tag">Outdoor Signage</span>
-          <h3>Flixton Cricket Club</h3>
-          <span class="work-card-link">View Project</span>
-        </div>
-      </a>
-      <a class="work-card" href="draincare-fleet-livery.html">
-        <div class="work-card-img">
-          <!--
-            PROJECT PHOTO — replace this comment with:
-            <img src="draincare-fleet.jpg" alt="Draincare branded fleet van livery">
-            Recommended: 600 × 800px (portrait)
-          -->
-        </div>
-        <div class="work-card-body">
-          <span class="work-card-img-tag">Fleet Livery</span>
-          <h3>Draincare</h3>
-          <span class="work-card-link">View Project</span>
-        </div>
-      </a>
+    <!-- Horizontal marquee carousel — pauses on hover so cards remain clickable.
+         On mobile (≤620px) the animation is disabled and native scroll-snap takes over.
+         To add a new project: copy one work-card block into BOTH the real set and
+         the duplicate set below, then add a matching duplicate in the second group. -->
+    <div class="work-marquee">
+      <div class="work-track">
+
+        <!-- ── REAL CARDS (accessible, tabbable) ── -->
+        <a class="work-card" href="shop-signage-lymm-fish-bar.html">
+          <div class="work-card-img">
+            <!--
+              PROJECT PHOTO — replace this comment with:
+              <img src="lymm-fish-bar.jpg" alt="Lymm Fish Bar shopfront fascia signage">
+              Recommended: 600 × 800px (portrait)
+            -->
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-img-tag">Shop Signage</span>
+            <h3>Lymm Fish Bar</h3>
+            <span class="work-card-link">View Project</span>
+          </div>
+        </a>
+
+        <a class="work-card" href="signage-installation-flixton-cricket-club.html">
+          <div class="work-card-img">
+            <!--
+              PROJECT PHOTO — replace this comment with:
+              <img src="flixton-cricket-club.jpg" alt="Flixton Cricket Club outdoor signage installation">
+              Recommended: 600 × 800px (portrait)
+            -->
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-img-tag">Outdoor Signage</span>
+            <h3>Flixton Cricket Club</h3>
+            <span class="work-card-link">View Project</span>
+          </div>
+        </a>
+
+        <a class="work-card" href="draincare-fleet-livery.html">
+          <div class="work-card-img">
+            <!--
+              PROJECT PHOTO — replace this comment with:
+              <img src="draincare-fleet.jpg" alt="Draincare branded fleet van livery">
+              Recommended: 600 × 800px (portrait)
+            -->
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-img-tag">Fleet Livery</span>
+            <h3>Draincare</h3>
+            <span class="work-card-link">View Project</span>
+          </div>
+        </a>
+
+        <!-- ── DUPLICATE CARDS for seamless loop (hidden from screen readers & keyboard) ── -->
+        <a class="work-card" href="shop-signage-lymm-fish-bar.html" aria-hidden="true" tabindex="-1">
+          <div class="work-card-img"></div>
+          <div class="work-card-body">
+            <span class="work-card-img-tag">Shop Signage</span>
+            <h3>Lymm Fish Bar</h3>
+            <span class="work-card-link">View Project</span>
+          </div>
+        </a>
+
+        <a class="work-card" href="signage-installation-flixton-cricket-club.html" aria-hidden="true" tabindex="-1">
+          <div class="work-card-img"></div>
+          <div class="work-card-body">
+            <span class="work-card-img-tag">Outdoor Signage</span>
+            <h3>Flixton Cricket Club</h3>
+            <span class="work-card-link">View Project</span>
+          </div>
+        </a>
+
+        <a class="work-card" href="draincare-fleet-livery.html" aria-hidden="true" tabindex="-1">
+          <div class="work-card-img"></div>
+          <div class="work-card-body">
+            <span class="work-card-img-tag">Fleet Livery</span>
+            <h3>Draincare</h3>
+            <span class="work-card-link">View Project</span>
+          </div>
+        </a>
+
+      </div>
     </div>
   </div>
 </section>
