@@ -3,83 +3,83 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://[INSERT DOMAIN]/</loc>
+    <loc>https://www.digi-print.co.uk/</loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Service pages -->
   <url>
-    <loc>https://[INSERT DOMAIN]/shop-signage-manchester</loc>
+    <loc>https://www.digi-print.co.uk/shop-signage-manchester</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/vehicle-graphics-manchester</loc>
+    <loc>https://www.digi-print.co.uk/vehicle-graphics-manchester</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/window-graphics-manchester</loc>
+    <loc>https://www.digi-print.co.uk/window-graphics-manchester</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/wall-graphics-manchester</loc>
+    <loc>https://www.digi-print.co.uk/wall-graphics-manchester</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/architectural-film-manchester</loc>
+    <loc>https://www.digi-print.co.uk/architectural-film-manchester</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/large-format-print-manchester</loc>
+    <loc>https://www.digi-print.co.uk/large-format-print-manchester</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Sector pages -->
   <url>
-    <loc>https://[INSERT DOMAIN]/office-signage-manchester</loc>
+    <loc>https://www.digi-print.co.uk/office-signage-manchester</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/retail-signage-manchester</loc>
+    <loc>https://www.digi-print.co.uk/retail-signage-manchester</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/hospitality-signage-manchester</loc>
+    <loc>https://www.digi-print.co.uk/hospitality-signage-manchester</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/commercial-unit-signage-manchester</loc>
+    <loc>https://www.digi-print.co.uk/commercial-unit-signage-manchester</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/fleet-livery-manchester</loc>
+    <loc>https://www.digi-print.co.uk/fleet-livery-manchester</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Case studies -->
   <url>
-    <loc>https://[INSERT DOMAIN]/draincare-fleet-livery</loc>
+    <loc>https://www.digi-print.co.uk/draincare-fleet-livery</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/shop-signage-lymm-fish-bar</loc>
+    <loc>https://www.digi-print.co.uk/shop-signage-lymm-fish-bar</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://[INSERT DOMAIN]/signage-installation-flixton-cricket-club</loc>
+    <loc>https://www.digi-print.co.uk/signage-installation-flixton-cricket-club</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
