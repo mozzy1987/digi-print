@@ -211,6 +211,9 @@ nav a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
   .header-cta .btn { display: none; }
   #site-header { overflow: visible; }
   .nav-toggle:checked ~ .header-main nav { display: flex; }
+  .nav-toggle:checked ~ .header-main .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .header-main .nav-hamburger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .header-main .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   nav { position: absolute; top: calc(var(--header-h) + 4px); left: 0; right: 0; background: var(--primary); flex-direction: column; align-items: stretch; padding: 16px 0; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: none; }
   nav a { padding: 12px 28px; border-radius: 0; }
   .intro-layout { grid-template-columns: 1fr; gap: 36px; }
@@ -235,6 +238,7 @@ nav a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
   .container { padding: 0 16px; }
   .section-head { margin-bottom: 36px; }
   .related-grid { grid-template-columns: 1fr; }
+  .breadcrumb { display: none; }
   .page-hero { padding-top: calc(var(--header-h) + 4px + 36px); padding-bottom: 48px; }
   .page-hero h1 { overflow-wrap: break-word; hyphens: auto; }
   .wa-bubble { bottom: 16px; right: 16px; }
@@ -246,8 +250,8 @@ nav a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <header id="site-header">
   <div class="brand-stripe header-stripe"><span></span><span></span><span></span><span></span></div>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <div class="header-main">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <div class="header-inner">
       <a href="index.html" class="logo-link" aria-label="Digi Print — home">
         <svg height="36" viewBox="120 270 800 490" xmlns="http://www.w3.org/2000/svg"><g><path fill="#ee3659" fill-rule="evenodd" d="M350.17,393.71c21.32-1.85,31.15,7.82,29.5,29-3.59,8.93-9.43,16.1-17.5,21.5-56.29,44.62-112.29,89.62-168,135-16.53,14.73-24.86,33.23-25,55.5-31.49-37.31-29.16-72.14,7-104.5,54-43.33,108-86.67,162-130,3.93-2.46,7.93-4.63,12-6.5Z"/><path fill="#e50b7a" fill-rule="evenodd" d="M365.17,304.21c-11.69-4.62-22.36-2.96-32,5-15.57,13.08-31.23,25.91-47,38.5-26.98,20.98-53.65,42.32-80,64-11.89,8.71-23.05,18.38-33.5,29-23.67,26.02-35,56.69-34,92,25.06-21.91,50.23-43.57,75.5-65,13.07-9.86,25.74-20.2,38-31,36.67-28.68,73-57.85,109-87.5,6.03-4.23,10.53-9.73,13.5-16.5,3.61-11.84.44-21.34-9.5-28.5Z"/><path fill="#f26b3b" fill-rule="evenodd" d="M373.17,472.71c20.67-.49,30.17,9.51,28.5,30-2.85,7.87-7.68,14.37-14.5,19.5-52.46,42.12-104.62,84.62-156.5,127.5-8.55,10.87-9.72,22.54-3.5,35-13.51-4.72-24.68-13.06-33.5-25-9.16-15.11-8.49-29.78,2-44,5.2-5.53,10.7-10.7,16.5-15.5,50-40.67,100-81.33,150-122,3.76-1.88,7.42-3.71,11-5.5Z"/><path fill="#f2e94e" fill-rule="evenodd" d="M366.17,577.71c16.55-1.11,25.89,6.56,28,23-.08,4.64-1.24,8.97-3.5,13l-9.5,9.5c-28.12,22.46-55.96,45.29-83.5,68.5-4.61,6.45-5.61,13.45-3,21,1.5,3,2,7,3.5,10-.33.33.33-.33,0,0-16.51-5.49-31.01-14.16-43.5-26-6.25-10.25-5.92-20.25,1-30,32.17-26.83,64.33-53.67,96.5-80.5,4.33-3.52,9-6.36,14-8.5Z"/></g><g fill="#ffffff"><path d="M613.19,371.16c-2.7-2.59-4.05-5.81-4.05-9.66s1.35-7.07,4.05-9.66c2.7-2.59,6.08-3.88,10.16-3.88s7.46,1.3,10.16,3.88c2.7,2.59,4.05,5.81,4.05,9.66s-1.35,7.08-4.05,9.66c-2.7,2.59-6.09,3.88-10.16,3.88s-7.46-1.29-10.16-3.88ZM634.75,385.94v91.52h-23.13v-91.52h23.13Z"/><path d="M499.21,406.76c3.69-7.16,8.73-12.66,15.12-16.52,6.39-3.85,13.49-5.78,21.31-5.78,5.95,0,11.62,1.3,17.02,3.88,5.39,2.59,9.69,6.03,12.89,10.32v-43.45h23.46v122.25h-23.46v-13.55c-2.87,4.52-6.88,8.15-12.06,10.9-5.18,2.75-11.18,4.13-18.01,4.13-7.71,0-14.76-1.98-21.14-5.95-6.39-3.96-11.43-9.55-15.12-16.77-3.69-7.21-5.53-15.5-5.53-24.86s1.84-17.45,5.53-24.61ZM562.4,417.25c-2.2-4.02-5.18-7.1-8.92-9.25-3.75-2.15-7.76-3.22-12.06-3.22s-8.26,1.05-11.89,3.14c-3.64,2.09-6.58,5.15-8.84,9.17-2.26,4.02-3.39,8.78-3.39,14.29s1.13,10.33,3.39,14.45c2.26,4.13,5.23,7.3,8.92,9.5,3.69,2.2,7.62,3.3,11.81,3.3s8.31-1.07,12.06-3.22c3.74-2.15,6.72-5.23,8.92-9.25,2.2-4.02,3.3-8.84,3.3-14.46s-1.1-10.43-3.3-14.45Z"/></g></svg>
