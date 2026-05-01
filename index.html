@@ -20,13 +20,13 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="Digi Print | Signage, Graphics &amp; Print — Manchester">
 <meta property="og:description" content="Manchester-based commercial signage, graphics, branded interiors, architectural film, and install specialists. Shopfronts, offices, commercial units, fleets, and branded environments across Greater Manchester and the North West.">
-<meta property="og:image" content="https://www.digi-print.co.uk/[INSERT-OG-IMAGE-1200x630].jpg">
+<meta property="og:image" content="https://www.digi-print.co.uk/draincare-van-livery-3.jpg">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Digi Print | Signage, Graphics &amp; Print — Manchester">
 <meta name="twitter:description" content="Manchester-based commercial signage, graphics, branded interiors, architectural film, and install specialists. Shopfronts, offices, commercial units, fleets, and branded environments across Greater Manchester and the North West.">
-<meta name="twitter:image" content="https://www.digi-print.co.uk/[INSERT-OG-IMAGE-1200x630].jpg">
+<meta name="twitter:image" content="https://www.digi-print.co.uk/draincare-van-livery-3.jpg">
 
 <title>Digi Print | Signage, Graphics &amp; Print — Manchester</title>
 
@@ -294,7 +294,13 @@
      HERO
   ━━━━━━━━━━━━━━━━━━━━━━━━━ */
   #hero {
-    background: var(--primary);
+    background:
+      linear-gradient(105deg,
+        rgba(18,21,62,0.97) 0%,
+        rgba(18,21,62,0.93) 38%,
+        rgba(18,21,62,0.52) 62%,
+        rgba(18,21,62,0.22) 100%),
+      url('draincare-van-livery-3.jpg') center 42% / cover no-repeat;
     padding-top: calc(var(--header-h) + 4px + 80px);
     padding-bottom: 110px;
     position: relative; overflow: hidden;
@@ -1268,8 +1274,11 @@
     .header-phone .phone-label { display: none; }
     .header-socials { display: none; }
     .contact-trust { flex-wrap: wrap; gap: 4px; }
-    /* Hero — reduce padding, collapse to single column */
+    /* Hero — reduce padding, collapse to single column, denser overlay on mobile */
     #hero {
+      background:
+        linear-gradient(180deg, rgba(18,21,62,0.92) 0%, rgba(18,21,62,0.82) 100%),
+        url('draincare-van-livery-3.jpg') center 42% / cover no-repeat;
       padding-top: calc(var(--header-h) + 4px + 48px);
       padding-bottom: 64px;
     }
@@ -1430,9 +1439,9 @@
 
       <div class="hero-inner" id="main-content">
         <div class="hero-badge">Manchester Commercial Signage &amp; Graphics Specialists</div>
-        <h1>Make Your Business<br><em>Impossible to Ignore</em></h1>
+        <h1>Signs, Graphics &amp; Livery<br><em>That Get You Noticed</em></h1>
         <p class="hero-sub">
-          From shopfronts and office signs to commercial unit branding, vehicle fleets, wall graphics, architectural film, and full installs — produced and fitted by a Manchester team that knows commercial environments.
+          Designed, produced and installed in Manchester. From shopfront signs and office branding to vehicle livery, window graphics, wall graphics, and architectural film — we handle the whole job so you don't have to.
         </p>
         <div class="hero-metas">
           <span class="hero-meta">Manchester-based</span>
@@ -1450,12 +1459,7 @@
         </div>
       </div>
 
-      <div class="hero-image-slot">
-        <img src="draincare-van-livery-3.jpg"
-             alt="Draincare branded fleet van — vehicle livery produced and applied by Digi Print, Manchester"
-             style="width:100%;height:auto;border-radius:14px;display:block;object-fit:cover;"
-             loading="eager">
-      </div>
+      <!-- hero-image-slot removed — van photo now used as CSS background on #hero -->
 
     </div>
   </div>
@@ -1490,6 +1494,7 @@
       <div class="service-card service-card--featured" id="shop-signage" data-num="01">
         <h3>Shop Signage</h3>
         <p>Fascia signs, built-up lettering, illuminated signage, office signs, unit signage, and exterior branding. From independent retailers to offices, business parks, and commercial premises — if it goes on the front of a building, we handle it.</p>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-top:-4px;">Make your shopfront work harder and bring in more footfall.</p>
         <span class="service-tag">Shop Signage Manchester</span>
         <a href="shop-signage-manchester.html" style="margin-top:auto;font-size:0.85rem;font-weight:700;color:var(--accent-light);display:inline-flex;align-items:center;gap:6px;">Learn more →</a>
       </div>
@@ -1497,6 +1502,7 @@
       <div class="service-card service-card--featured" id="vehicle-graphics" data-num="02">
         <h3>Vehicle Graphics &amp; Livery</h3>
         <p>Full vehicle wraps, partial graphics, fleet livery, and cut vinyl lettering. We work with sole traders running one van and service companies running dozens — same quality, right finish, every time.</p>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-top:-4px;">Turn every van and truck into a moving advert for your business.</p>
         <span class="service-tag">Vehicle Livery Manchester</span>
         <a href="vehicle-graphics-manchester.html" style="margin-top:auto;font-size:0.85rem;font-weight:700;color:var(--accent-light);display:inline-flex;align-items:center;gap:6px;">Learn more →</a>
       </div>
@@ -1504,6 +1510,7 @@
       <div class="service-card service-card--standard">
         <h3>Window Graphics</h3>
         <p>Frosted vinyl, privacy bands, cut lettering, full-colour window prints, and glazed graphics. Applied cleanly, finished properly, and designed to work for offices, receptions, commercial units, and customer-facing spaces.</p>
+        <p style="font-size:0.83rem;margin-top:-4px;">Add privacy, branding or promotions to any glazed frontage.</p>
         <span class="service-tag">Window Graphics Manchester</span>
         <a href="window-graphics-manchester.html" style="font-size:0.85rem;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;">Learn more →</a>
       </div>
@@ -1511,6 +1518,7 @@
       <div class="service-card service-card--standard">
         <h3>Large Format Print</h3>
         <p>Exhibition graphics, banners, POS displays, hoardings, site boards, and oversized prints at any scale. Produced sharp, delivered fast, and specified properly for retail, leisure, commercial, and industrial environments.</p>
+        <p style="font-size:0.83rem;margin-top:-4px;">Banners, boards and displays produced quickly for events, sites and retail.</p>
         <span class="service-tag">Large Format Manchester</span>
         <a href="large-format-print-manchester.html" style="font-size:0.85rem;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;">Learn more →</a>
       </div>
@@ -1518,6 +1526,7 @@
       <div class="service-card service-card--standard" id="signage-installation">
         <h3>Signage Installation</h3>
         <p>Supply-and-install as standard. Our install teams work on shopfronts, offices, commercial units, leisure venues, and coordinated multi-site rollouts — one job, one team, nothing left for you to chase.</p>
+        <p style="font-size:0.83rem;margin-top:-4px;">We handle print, fabrication and fitting — you don't need three suppliers.</p>
         <span class="service-tag">Managed Install Service</span>
         <a href="#contact" style="font-size:0.85rem;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;">Get a Quote →</a>
       </div>
@@ -1525,6 +1534,7 @@
       <div class="service-card service-card--standard">
         <h3>Wall Graphics, Interior Branding &amp; Architectural Film</h3>
         <p>Wall graphics, branded surfaces, and architectural film for offices, receptions, hospitality interiors, feature walls, counters, doors, and lift areas. Ideal when the inside of the space needs to look as considered as the outside.</p>
+        <p style="font-size:0.83rem;margin-top:-4px;">Transform blank walls and tired surfaces into spaces that impress clients and staff.</p>
         <span class="service-tag">Interior Branding &amp; Architectural Film</span>
         <a href="wall-graphics-manchester.html" style="font-size:0.85rem;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:6px;">Learn more →</a>
       </div>
@@ -1595,22 +1605,22 @@
 
         <!-- Column 1 — scrolls up; duplicated for seamless loop -->
         <div class="why-col why-col--up">
-          <div class="why-card"><span class="why-card-num">01</span><h3>Fast &amp; Flexible</h3><p>Deadlines don't move — and neither do we. We work at the pace your business needs, whether that's a same-week turnaround or a carefully phased rollout.</p></div>
-          <div class="why-card"><span class="why-card-num">03</span><h3>Wide Production Network</h3><p>We work with specialist suppliers across signage, print, fabrication, glazing, architectural film, and install — joined-up jobs without added complexity.</p></div>
-          <div class="why-card"><span class="why-card-num">05</span><h3>Install Capability Included</h3><p>We manage the full process — production, delivery, and professional installation. One job, one relationship, no coordination headaches on your side.</p></div>
-          <div class="why-card"><span class="why-card-num">01</span><h3>Fast &amp; Flexible</h3><p>Deadlines don't move — and neither do we. We work at the pace your business needs, whether that's a same-week turnaround or a carefully phased rollout.</p></div>
-          <div class="why-card"><span class="why-card-num">03</span><h3>Wide Production Network</h3><p>We work with specialist suppliers across signage, print, fabrication, glazing, architectural film, and install — joined-up jobs without added complexity.</p></div>
-          <div class="why-card"><span class="why-card-num">05</span><h3>Install Capability Included</h3><p>We manage the full process — production, delivery, and professional installation. One job, one relationship, no coordination headaches on your side.</p></div>
+          <div class="why-card"><span class="why-card-num">01</span><h3>Fast Turnarounds</h3><p>Tell us your deadline upfront and we'll give you a straight answer. Same-week where it's achievable, phased where it makes more sense — no vague timelines.</p></div>
+          <div class="why-card"><span class="why-card-num">03</span><h3>Print, Fabrication &amp; Install</h3><p>We cover signage, print, fabrication, glazing, architectural film, and installation. One supplier for all of it — jobs don't fall through the gaps between trades.</p></div>
+          <div class="why-card"><span class="why-card-num">05</span><h3>Managed Install as Standard</h3><p>Supply-and-install is how we work. Our install teams handle everything on-site — you don't need to book separate contractors or manage the fit yourself.</p></div>
+          <div class="why-card"><span class="why-card-num">01</span><h3>Fast Turnarounds</h3><p>Tell us your deadline upfront and we'll give you a straight answer. Same-week where it's achievable, phased where it makes more sense — no vague timelines.</p></div>
+          <div class="why-card"><span class="why-card-num">03</span><h3>Print, Fabrication &amp; Install</h3><p>We cover signage, print, fabrication, glazing, architectural film, and installation. One supplier for all of it — jobs don't fall through the gaps between trades.</p></div>
+          <div class="why-card"><span class="why-card-num">05</span><h3>Managed Install as Standard</h3><p>Supply-and-install is how we work. Our install teams handle everything on-site — you don't need to book separate contractors or manage the fit yourself.</p></div>
         </div>
 
         <!-- Column 2 — scrolls down; duplicated for seamless loop -->
         <div class="why-col why-col--down">
-          <div class="why-card"><span class="why-card-num">02</span><h3>One Point of Contact</h3><p>You deal with one person throughout. They know your job, your brand, and what's been agreed — from the first enquiry through to the install being signed off.</p></div>
-          <div class="why-card"><span class="why-card-num">04</span><h3>One-Offs to Multi-Site Rollouts</h3><p>Whether it's a single unit sign or a rollout across 20 locations, we have the processes and supplier relationships to deliver consistently at scale.</p></div>
-          <div class="why-card"><span class="why-card-num">06</span><h3>Commercially Minded Approach</h3><p>We care about the result, not the invoice value. If there's a better way to approach something, we'll say so upfront rather than just taking the order.</p></div>
-          <div class="why-card"><span class="why-card-num">02</span><h3>One Point of Contact</h3><p>You deal with one person throughout. They know your job, your brand, and what's been agreed — from the first enquiry through to the install being signed off.</p></div>
-          <div class="why-card"><span class="why-card-num">04</span><h3>One-Offs to Multi-Site Rollouts</h3><p>Whether it's a single unit sign or a rollout across 20 locations, we have the processes and supplier relationships to deliver consistently at scale.</p></div>
-          <div class="why-card"><span class="why-card-num">06</span><h3>Commercially Minded Approach</h3><p>We care about the result, not the invoice value. If there's a better way to approach something, we'll say so upfront rather than just taking the order.</p></div>
+          <div class="why-card"><span class="why-card-num">02</span><h3>One Point of Contact</h3><p>You deal with one person from the first enquiry through to the install being signed off. They know your job, your brand, and what's been agreed — no handoffs, no confusion.</p></div>
+          <div class="why-card"><span class="why-card-num">04</span><h3>Single Jobs &amp; Full Rollouts</h3><p>Whether it's one sign or a rollout across 20 sites, we work the same way — consistent quality, clear communication, and jobs delivered without you chasing progress.</p></div>
+          <div class="why-card"><span class="why-card-num">06</span><h3>Straight-Talking, No Fluff</h3><p>If something won't work or there's a better option, we'll say so before you commit. We'd rather give you honest advice than take an order that causes problems later.</p></div>
+          <div class="why-card"><span class="why-card-num">02</span><h3>One Point of Contact</h3><p>You deal with one person from the first enquiry through to the install being signed off. They know your job, your brand, and what's been agreed — no handoffs, no confusion.</p></div>
+          <div class="why-card"><span class="why-card-num">04</span><h3>Single Jobs &amp; Full Rollouts</h3><p>Whether it's one sign or a rollout across 20 sites, we work the same way — consistent quality, clear communication, and jobs delivered without you chasing progress.</p></div>
+          <div class="why-card"><span class="why-card-num">06</span><h3>Straight-Talking, No Fluff</h3><p>If something won't work or there's a better option, we'll say so before you commit. We'd rather give you honest advice than take an order that causes problems later.</p></div>
         </div>
 
       </div>
@@ -1619,15 +1629,15 @@
       <div class="why-right">
         <span class="label">Why Work With Us</span>
         <div class="accent-line"></div>
-        <h2>A Signage Partner That Actually Delivers</h2>
-        <p>We're not a print portal or a catalogue service. We're a small, commercially focused team with real production capability and install teams you can actually rely on.</p>
+        <h2>One Point of Contact, Start to Finish</h2>
+        <p>We handle print, fabrication and fitting under one roof. No chasing three suppliers, no miscommunication between trades — just a straight job done properly.</p>
         <ul class="why-tick-list">
-          <li>Fast turnarounds — same-week or carefully phased rollouts</li>
-          <li>One contact from first enquiry to signed-off install</li>
-          <li>Specialist supplier network across all trades</li>
-          <li>One-off jobs and multi-site rollouts handled equally well</li>
-          <li>Full install capability included as standard</li>
-          <li>Straight-talking, commercially focused advice</li>
+          <li>One point of contact from quote to signed-off install</li>
+          <li>Fast turnarounds — same-week where needed, phased where it suits</li>
+          <li>We handle print, fabrication and fitting — you don't coordinate anything</li>
+          <li>Works for single jobs and multi-site rollouts equally well</li>
+          <li>Straight answers on cost, timing and what's achievable</li>
+          <li>Manchester-based with real production capability and install teams</li>
         </ul>
         <a href="#contact" class="btn-arrow">
           Get a Quote
@@ -1646,8 +1656,8 @@
     <div class="section-head">
       <span class="label">The Results</span>
       <div class="accent-line"></div>
-      <h2>What Working With Digi Print Delivers</h2>
-      <p>Good signage and graphics do more than decorate a space. They help commercial premises read properly from the outside, make interiors feel more considered, and give customers confidence before a word is spoken.</p>
+      <h2>Better Visibility. Better First Impressions.</h2>
+      <p>Good signage and graphics do real commercial work. They make premises easier to find, give customers confidence before they walk in, and make your business look as established as it is.</p>
     </div>
     <div class="outcomes-grid">
 
@@ -1882,8 +1892,8 @@
       <div class="about-text">
         <span class="label">About Digi Print</span>
         <div class="accent-line"></div>
-        <h2>A Manchester Signage and Graphics Partner for Commercial Spaces</h2>
-        <p>Digi Print is a Manchester-based signage, graphics, and print business. We keep the process straightforward — one contact, clear communication, and jobs that get done without you having to chase.</p>
+        <h2>Manchester Signage and Graphics, Done Properly</h2>
+        <p>Digi Print is a Manchester-based signage, graphics, and print business. We keep it simple — one contact, clear communication, and jobs that get done without you having to chase anything.</p>
         <p>We specialise in signage, graphics, and install-led work across shopfronts, office signage, commercial units, vehicle livery, window graphics, wall graphics, branded interiors, and architectural film. We also support clients with general print, merchandise, and print management where needed.</p>
         <p>We work with offices, retailers, hospitality operators, trade businesses, leisure venues, service companies, clubs, and commercial clients across Manchester, Salford, Trafford, Stockport, Bolton, Wigan, and the wider North West.</p>
         <ul class="about-list">
@@ -2028,13 +2038,13 @@ Thanks for everything 💛.</p>
       <div class="contact-info">
         <span class="label label--light">Get In Touch</span>
         <div class="accent-line"></div>
-        <h2>Tell Us What You Need</h2>
-        <p>Drop us a message with a bit of detail — what the job is, roughly when you need it, and any locations involved. Whether it's a shopfront sign, office signage, a commercial unit refresh, vehicle graphics, wall graphics, or architectural film, we'll come back quickly with a straight answer and a competitive quote.</p>
+        <h2>Get a Quote Today</h2>
+        <p>Drop us a message with a bit of detail — what the job is, roughly when you need it, and any locations involved. Whether it's a shopfront sign, office signage, vehicle graphics, wall graphics, or architectural film, we'll come back quickly with a straight answer and a competitive price.</p>
 
         <div class="contact-links">
           <a href="tel:07752264677" class="contact-link">
             <div class="contact-link-icon">📞</div>
-            07752 264 677
+            <span>07752 264 677<span style="display:block;font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.45);">Call now to discuss your project</span></span>
           </a>
           <a href="mailto:hello@digi-print.co.uk" class="contact-link">
             <div class="contact-link-icon">✉️</div>
@@ -2046,7 +2056,7 @@ Thanks for everything 💛.</p>
                 <path d="M16.02 3.2c-7.03 0-12.75 5.62-12.75 12.53 0 2.37.68 4.68 1.96 6.68L3.2 28.8l6.62-1.94a12.96 12.96 0 0 0 6.2 1.57c7.03 0 12.75-5.62 12.75-12.53S23.05 3.2 16.02 3.2Zm0 22.99c-2.04 0-4.02-.58-5.73-1.68l-.41-.26-3.92 1.15 1.2-3.76-.27-.43a10.21 10.21 0 0 1-1.55-5.48c0-5.67 4.79-10.29 10.68-10.29S26.7 10.06 26.7 15.73 21.91 26.19 16.02 26.19Zm5.86-7.7c-.32-.16-1.9-.92-2.2-1.03-.29-.1-.51-.16-.72.16-.21.31-.83 1.03-1.02 1.24-.19.21-.38.23-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.59-1.85-1.78-2.16-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.72-1.71-.99-2.34-.26-.61-.53-.53-.72-.54l-.61-.01c-.21 0-.56.08-.85.39-.29.31-1.12 1.08-1.12 2.63 0 1.55 1.15 3.05 1.31 3.26.16.21 2.27 3.4 5.49 4.77.77.33 1.37.52 1.84.67.77.24 1.47.21 2.03.13.62-.09 1.9-.76 2.17-1.5.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z"/>
               </svg>
             </div>
-            WhatsApp Us
+            <span>WhatsApp Us<span style="display:block;font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.45);">Send photos for a quick quote</span></span>
           </a>
         </div>
 
@@ -2069,7 +2079,7 @@ Thanks for everything 💛.</p>
 
       <div class="enquiry-form">
         <h3>Send Us an Enquiry</h3>
-        <p class="form-sub">We typically respond within a few hours during business hours.</p>
+        <p class="form-sub">We typically respond within a few hours. Include any photos or reference images if you have them.</p>
 
         <form action="https://formspree.io/f/mgorpjqr" method="POST">
           <input type="hidden" name="_subject" value="New Digi Print enquiry">
@@ -2122,7 +2132,7 @@ Thanks for everything 💛.</p>
             <label for="message">Tell Us About Your Project</label>
             <textarea id="message" name="message" placeholder="Brief overview of what you need, any deadlines, number of locations, or anything else useful to know..." required></textarea>
           </div>
-          <button type="submit" class="btn btn--primary form-submit">Send Enquiry</button>
+          <button type="submit" class="btn btn--primary form-submit">Send Enquiry — Get a Quote</button>
         </form>
       </div>
 
