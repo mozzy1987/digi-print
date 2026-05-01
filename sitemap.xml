@@ -83,5 +83,10 @@
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
+  <url>
+    <loc>https://www.digi-print.co.uk/beestro-cafe-window-frosting-urmston</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 
 </urlset>
